@@ -1,0 +1,7 @@
+
+To install LAMP server(https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu)
+
+Ubuntu
+
+Select scripting language(http://www.infoworld.com/article/2620515/application-development/from-php-to-perl--what-s-hot--what-s-not-in-scripting-languages.html)
+

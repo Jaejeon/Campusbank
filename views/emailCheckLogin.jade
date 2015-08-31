@@ -1,0 +1,26 @@
+﻿extends layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/email_check_login.css')
+  .container
+    .emailAuthBox
+      h4 이메일 인증 - 로그인
+      if authError1
+        h6 다시 시도해 주세요.
+      if authError2
+        h6 인증 기한이 만료되었습니다. 이메일 인증을 다시 해주세요.
+      if authError3
+        h6 올바르지 않은 접근입니다.
+      if authError4
+        h6 다시 시도해 주세요.
+      form(action='/emailAgain', method='post')
+        .input_box
+          span 이메일
+          input(type='text', name='email')
+        .input_box
+          span 비밀번호
+          input(type='text', name='password')
+
+        .emailCheckContent
+          p 위의 주소로 인증 메일을 보냈습니다. 인증 메일에 있는 메일 인증 링크를 클릭하시면 캠퍼스뱅크에 가입이 완료됩니다. 만약 10분이 지나도 메일이 도착하지 않으면 '인증 메일 재발송' 버튼을 눌러 인증 메일을 다시 받으세요.
+          input(type='submit', value='인증 메일 재발송').submitButton

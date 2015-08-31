@@ -1,0 +1,21 @@
+﻿doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title="캠퍼스뱅크"
+    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400 | Roboto+Condensed:400,italic')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/earlyaccess/nanumgothic.css')
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    script(src='/jquery-1.11.3.js')
+
+  body
+    .background_container
+      img(src='images/univ1.jpg', alt='background')
+    .sub_container
+      img(src='images/univ2.png', alt='mainpage_img')
+      .button_container
+        a(href='/main')
+          input(id='enter_loanee', type='button', value='대출을 원해요')
+        a(href='/main_')
+          input(id='enter_lender', type='button', value='투자를 원해요')
+

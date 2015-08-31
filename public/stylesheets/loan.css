@@ -1,0 +1,17 @@
+
+.row img{
+  width:20%;
+  height:auto;
+}
+
+.intro-row{
+  margin-left:20px;
+  margin-right:20px;
+  border-bottom:solid 1px #cccccc;
+  margin-top: 30px;
+  overflow:auto;
+}
+
+.intro-row-para{
+  display:inline-block;
+}

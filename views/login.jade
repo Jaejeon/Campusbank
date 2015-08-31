@@ -1,0 +1,21 @@
+﻿
+block content
+  link(rel='stylesheet', href='/stylesheets/login.css')
+  .container
+    .login_box
+      h5 로그인
+      unless authError5
+        h6 로그인 후 이용해주세요.
+      if authError5
+        h6 이미 인증이 완료되었습니다. 로그인 후 이용해 주세요.
+      form(action='/login', method='post')
+        input(type='email', name='email', placeholder=' E-mail', class='confidential')
+        input(type='password', name='password', placeholder=' Password', class='confidential')
+        input(id='button_login', type='submit', value='로그인', class='cursorPointer buttonClass1 loginButton')
+      a(href='/join')
+        input(id='button_join', type='button', value='10초만에 가입하기', class='cursorPointer buttonClass1 joinButton')
+
+      #login_facebook.cursorPointer
+        a(href='#')
+          img(src='../images/facebook_.png', alt='logo_facebook')
+          span  &nbsp&nbsp페이스북으로 가입하기

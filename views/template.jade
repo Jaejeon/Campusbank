@@ -1,0 +1,126 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    title 캠퍼스뱅크
+    link(href='../bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/stylesheets/template.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400 | Roboto+Condensed:400,italic')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/earlyaccess/nanumgothic.css')
+    //link(rel='stylesheet', type='text/css', href='/plugin/adaptive-switch/styles.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/join.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/loan.css')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+     script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+     script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    script(src='/bower_components/jquery/dist/jquery.min.js')
+    script(src='/javascripts/mainController.js')
+
+  body
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+
+    // Include all compiled plugins (below), or include individual files as needed
+
+    // adaptive switch
+    //script(src='/plugin/adaptive-switch/jquery.adaptive-switch.js')
+
+    div.stage
+      div.header-company
+        html.
+          <p>(주)퓨처파이낸스대부&nbsp&nbsp&nbsp&nbsp&nbsp 대부업 &nbsp&nbsp| &nbsp&nbsp2015-서울동대문-0702&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 대부중개업 &nbsp&nbsp|&nbsp&nbsp 2015-서울동대문-0703
+
+      div#wrapper
+        div#sidebar-wrapper
+          ul.sidebar-nav
+            li.sidebar-brand
+              a(href='')
+                img(src='images/001.png', width='100%', height='auto')
+            li.nav-list
+              a.overEB6000.ajax-link#loan-intro
+                img(src='/images/menu06.png')
+                span 서비스소개
+            li.nav-list
+              a.overFFAE5A.ajax-link#credit
+                img(src='/images/menu03.png')
+                span 신용평가
+              ul
+                li.sub-li
+                  a step1  본인인증
+                li.sub-li
+                  a step2  기본정보
+                li.sub-li
+                  a step3  학력정보
+                li.sub-li
+                  a step4  기대출정보
+                li.sub-li
+                  a step5  서류인증
+                li.sub-li
+                  a step6  약관동의
+                li.sub-li
+                  a step7  평가결과
+
+            li.nav-list
+              a.overEB6000.ajax-link#register
+                img(src='/images/menu04.png')
+                span 대출신청
+              ul
+                li.sub-li
+                  a step1  대출목적입력
+                li.sub-li
+                  a step2  대출종류선택
+                li.sub-li
+                  a step3  대출금액설정
+                li.sub-li
+                  a step4  대출기간설정
+                li.sub-li
+                  a step5  약관동의
+                li.sub-li
+                  a step6  확인 및 접수
+            li.nav-list
+              a.overFFAE5A
+                img(src='/images/menu01.png')
+                span 신청내역
+            li.nav-list
+              a.overEB6000
+                img(src='/images/menu05.png')
+                span 상환내역
+            li.nav-list
+              a.overFFAE5A
+                img(src='/images/menu02.png')
+                span 스쿠터리스
+          div#sidebar-bottom
+            p 070-7162-0528
+            p ask@redrocket.co.kr
+            p 카카오톡: @캠퍼스뱅크
+        <!-- Page Content -->
+
+        div#page-content-wrapper
+          header.container-fluid
+            div.row
+              //input(type='checkbox', data-switch-left='투자자 모드로 전환', data-switch-right='대출자 모드로 전환')#loan-lend-switch
+              a.rightAssign.col-lg-1.ajax-link#join
+                span 회원가입
+              a.rightAssign.col-lg-1.ajax-link#login
+                span 로그인
+              ul.icon-list
+                li
+                  a#comment-icon
+                    i.fa.fa-commenting-o.fa-lg
+                  span#comment-icon-hover 실시간 대출 상담
+                li
+                  a#question-icon
+                    i.fa.fa-question.fa-lg
+                  span#question-icon-hover 고객문의
+
+          div#content-container.container-fluid
+            block content
+
+        <!-- /#page-content-wrapper -->
+
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')

@@ -1,0 +1,81 @@
+﻿
+block content
+  h4 회원가입
+  form(role='form', action='/emailCheck', method='post', id='join-form')
+    div.row
+      div.col-lg-6.col-md-6.col-sm-6.col-xs-6.user-type-select.user-type-loan
+        input(type='radio', id='user-type-loan', name='user-type', value='loan', checked='true')
+        label(for='user-type-loan') 대출 상품 이용
+      div.col-lg-6.col-md-6.col-sm-6.col-xs-6.user-type-select.user-type-lend
+        input(type='radio', id='user-type-lend', name='user-type', value='lend')
+        label(for='user-type-lend') 투자 상품 이용
+
+    div.row
+      h5 기본정보
+
+    div.form-group.has-feedback
+      div.row
+        label(for='inputName', class='control-label').col-lg-3.col-md-4.col-sm-4.col-xs-4 이름(실명)
+        input(type='text', id='inputName', placeholder='예) 홍길동', required='true',
+         data-error='이름을 입력해주세요.').col-lg-4.col-md-4.col-sm-4.col-xs-4.fill-in-form
+        div.help-block.with-errors.col-lg-3.col-md-4.col-sm-4.col-xs-4
+    div.form-group
+      div.row
+        label(for='inputEmail', class='control-label').col-lg-3.col-md-4.col-sm-4.col-xs-4 이메일
+        input(type='email', id='inputEmail', placeholder='예) campusbank@redrocket.co.kr', required='true',
+         data-error='이메일을 입력해주세요.').col-lg-4.col-md-4.col-sm-4.col-xs-4.fill-in-form
+        div.help-block.with-errors.col-lg-3.col-md-4.col-sm-4.col-xs-4
+    div.form-group
+      div.row
+        label(for='inputEmailCheck', class='control-label').col-lg-3.col-md-4.col-sm-4.col-xs-4 이메일 확인
+        input(type='email', id='inputEmailCheck', placeholder='예) campusbank@redrocket.co.kr', data-match='#inputEmail', required='true',
+         data-error='이메일이 일치하지 않습니다.').col-lg-4.col-md-4.col-sm-4.col-xs-4.fill-in-form
+        div.help-block.with-errors.col-lg-3.col-md-4.col-sm-4.col-xs-4
+    div.form-group
+      div.row
+        label(for='inputPassword', class='control-label').col-lg-3.col-md-4.col-sm-4.col-xs-4 비밀번호
+        input(type='password', id='inputPassword', required='true',
+         data-error='비밀번호를 입력해주세요.').col-lg-4.col-md-4.col-sm-4.col-xs-4.fill-in-form
+        div.help-block.with-errors.col-lg-3.col-md-4.col-sm-4.col-xs-4
+    div.form-group
+      div.row
+        label(for='inputPasswordCheck', class='control-label').col-lg-3.col-md-4.col-sm-4.col-xs-4 비밀번호 확인
+        input(type='password', id='inputPasswordCheck', required='true', data-match='#inputPassword',
+         data-error='비밀번호가 일치하지 않습니다.').col-lg-4.col-md-4.col-sm-4.col-xs-4.fill-in-form
+        div.help-block.with-errors.col-lg-3.col-md-4.col-sm-4.col-xs-4
+    div.form-group
+      div.row
+        
+
+
+    div.row
+      h5 약관동의
+    p 이용약관
+    div.container-fluid.agree-box
+      textarea(id='text1', value='', readonly='true')
+      div.form-group
+        div.checkbox
+          input(type='checkbox', id='agree1', data-error='약관에 동의하지 않았습니다.', required='true')
+          label(for='agree1') &nbsp&nbsp나는 캠퍼스뱅크의 이용약관을 읽었으며 이에 동의합니다.
+          div.help-block.with-errors
+
+    p 개인정보 취급방침
+    div.container-fluid.agree-box
+      textarea(id='text2', value='', readonly='true')
+      div.form-group
+        div.checkbox
+          input(type='checkbox', id='agree2', data-error='약관에 동의하지 않았습니다.', required='true')
+          label(for='agree2') &nbsp&nbsp나는 캠퍼스뱅크의 개인정보 취급방침을 읽었으며 이에 동의합니다.
+          div.help-block.with-errors
+    div.container-fluid
+      input(type='submit', value='다음 단계로', id='join-submit').col-lg-4.col-md-4.col-sm-4.col-xs-4
+
+    div.row
+      p </br></br></br></br></br></br></br>
+
+  script(src='/plugin/bootstrap-validator/dist/validator.min.js')
+  script(src='/javascripts/pageInitFunc.js')
+  script(src='/javascripts/readText.js')
+  script.
+    readText('text1', '/texts/Survey.txt');
+    readText('text2', '/texts/Survey.txt');

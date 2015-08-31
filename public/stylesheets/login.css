@@ -1,0 +1,107 @@
+
+.login_box{
+    position:absolute;
+    top:70px;
+    left:0px;
+    right:0px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    width:350px;
+    min-height:390px;
+    border-radius: 20px;
+    border: solid 1px #e4e4e4;
+}
+
+.login_box .buttonClass1{
+    width:300px;
+    padding:0px;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.loginButton{
+    border: solid 1px #002b57;
+    color: #002b57;
+}
+.joinButton{
+    border: solid 1px #eb6000;
+    color: #eb6000;
+}
+
+.login_box form{
+    margin-top:10px;
+}
+
+.login_box input{
+    outline:none;
+    font-size: 20px;
+    width:290px;
+    height:40px;
+    margin-top:15px;
+    margin-left:25px;
+    margin-right:25px;
+    padding-left:10px;
+}
+
+.login_box h5{
+    height:40px;
+    line-height:40px;
+    margin:0px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: white;
+    color:#002b57;
+}
+
+.login_box h6{
+    margin: 0px 0px 0px 0px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background-color: white;
+    color: #eb5555;
+}
+
+#login_facebook{
+    width:300px;
+    height:40px;
+    margin-top:15px;
+    margin-left:25px;
+    margin-right:25px;
+    text-align: center;
+    border: solid 1px #002b57;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #002b57;
+}
+
+#login_facebook a, a:visited{
+    float:left;
+    height:40px;
+    width:260px;
+    text-decoration: none;
+    color:inherit;
+    padding-left:40px;
+}
+
+#login_facebook span{
+    float:left;
+    height:40px;
+    line-height: 40px;
+}
+
+#login_facebook img{
+    float:left;
+    margin-top:5px;
+}
+
+.cursorPointer{
+    cursor:pointer;
+}

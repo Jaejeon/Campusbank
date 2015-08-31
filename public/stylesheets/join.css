@@ -1,0 +1,69 @@
+
+
+#content-container .user-type-loan{
+  background-color: #eb6000;
+}
+
+#content-container .user-type-lend{
+  background-color: #002b57;
+}
+
+#content-container .user-type-select{
+  height:40px;
+  text-align: center;
+  line-height: 40px;
+  margin-bottom: 0px;
+}
+
+#content-container .user-type-select label{
+  font-size:12px;
+  font-weight:200;
+  color:white;
+  margin-left:5px;
+}
+
+#content-container h5{
+  font-size:16px;
+  font-weight:bold;
+  color:#555555;
+  height:60px;
+  line-height:60px;
+  padding-left:10px;
+  border-bottom: solid 1px #ccc;
+  margin-bottom:20px;
+
+}
+
+#content-container form p{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#text1, #text2{
+  width:100%;
+  height:300px;
+  resize:none;
+  outline:none;
+}
+
+#content-container .agree-box input[type='checkbox'], #agree-label{
+  float:right;
+  font-weight:normal;
+  margin-left:10px;
+}
+
+#content-container #join-submit{
+  position: absolute;
+  left:0px;
+  right:0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:20px;
+  height:50px;
+  border-radius: 20px;
+  background-color: #eb6000;
+  color:white;
+  font-weight:bold;
+  font-size:18px;
+  outline:none;
+}
