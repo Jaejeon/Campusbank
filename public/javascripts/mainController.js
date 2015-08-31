@@ -91,8 +91,12 @@ $(function(){
         $.get(location.origin + location.pathname + '/' + splitResult[1], function(data){
             $('#content-container').empty();
             $('#content-container').append(data);
-
         });
+    });
+
+    $('.ajax-post').click(function(e){
+        e.preventDefault();
+
     });
 });
 

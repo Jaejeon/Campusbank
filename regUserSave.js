@@ -5,7 +5,7 @@ module.exports = function(req, res){
   var newUser = new RegUser({
     email: req.body.email,
     password: req.body.password,
-    birth:  req.body.birthYear + '-' + req.body.birthMonth + '-' + req.body.birthDay,
+    birth:  req.body.birthDay,
     usertype: req.body.usertype,
     username: req.body.username
   });

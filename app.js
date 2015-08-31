@@ -109,13 +109,14 @@ app.post('/login',
 app.post('/join', function(req, res){
   var newUser = regUserSave(req,res);
   joinEmailCheck(req,res,newUser);
+  res.render('emailCheck');
 });
 
 app.post('/emailAgain', function(req,res){
     var newUser = new RegUser({
        email: req.body.email
     });
-    joinEmailCheck(req,res,newUser)
+    joinEmailCheck(req,res,newUser);
 });
 
 app.get('/logout', function(req,res){
