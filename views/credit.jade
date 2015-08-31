@@ -1,3 +1,65 @@
 ﻿
 block content
-  h4 Credit
+
+form(role='form' , action='/' , method='post')
+    div.row
+        h5 Step1. 본인인증
+        </br></br></br></br></br></br>
+
+    div.row
+        h5 Step2. 기본정보
+        // 성별정보
+        div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+            div 성별&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select1', name='sex-type', value='male', checked='true')
+                label(for='basic-info-select1') 남&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select2', name='sex-type', value='female', checked='true')
+                label(for='basic-info-select2') 여
+        // 군필여부
+        div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+            div 군필여부&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select3', name='army_type', value='finished', checked='true')
+                label(for='basic-info-select3') 군필&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select4', name='army_type', value='unfinished', checked='true')
+                label(for='basic-info-select4') 미필
+        // 졸업여부
+        div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+            div 졸업여부&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select5', name='graduate_type', value='ungraduate', checked='true')
+                label(for='basic-info-select5') 재학&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select6', name='graduate_type', value='resume', checked='true')
+                label(for='basic-info-select6') 휴학&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select7', name='graduate_type', value='graduate', checked='true')
+                label(for='basic-info-select7') 졸업
+        </br></br>
+
+        // 소득여부
+        div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+            div 소득여부&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select8', name='income_type', value='yes', checked='true')
+                label(for='basic-info-select8') 있음&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select9', name='income_type', value='no', checked='true')
+                label(for='basic-info-select9') 없음
+        // 소득형태
+        div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+            div 소득형태&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select10', name='work_type', value='regular', checked='true')
+                label(for='basic-info-select10') 정규직&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select11', name='work_type', value='unregular', checked='true')
+                label(for='basic-info-select11') 비정규직
+        // 소득금액
+        div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+            div 소득금액&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='basic-info-select12', name='te_type', value='dddd', checked='true')
+                label(for='basic-info-select12') 졸업
+
+
+    </br></br></br>
+    div.row
+        h5 Step3. 학력정보
+
+    div.row
+        h5 Step4. 기대출정보
+
+    div.container-fluid
+        input(type='submit', value='다음 단계로', id='join-submit').col-lg-4.col-md-4.col-sm-4.col-xs-4
