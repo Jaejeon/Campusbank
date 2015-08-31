@@ -1,0 +1,13 @@
+#content-container .basic-info-select{
+    height:40px;
+    text-align: left;
+    line-height: 40px;
+    margin-bottom: 0px;
+}
+
+#content-container .basic-info-select label {
+    font-size: 12px;
+    font-weight: 200;
+    color: black;
+    margin-left: 5px;
+}
