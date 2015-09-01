@@ -1,4 +1,21 @@
 
+var addGetLink = function(){
+    $('.ajax-link').click(function(e){
+        e.preventDefault(); // cancel navigation
+        $('#content-container').html("<i class='fa fa-spinner fa-pulse fa-5x'></i><p> Loading </p>");
+        location.hash = this.id;
+        var splitResult = location.hash.split('#');
+        $.get(location.origin + location.pathname + '/' + splitResult[1], function(data){
+            $('#content-container').empty();
+            $('#content-container').append(data);
+
+            //add link to appended contents
+            addGetLink();
+            pageInit();
+        });
+    });
+};
+
 $(function(){
     //$('input[type="checkbox"]').adaptiveSwitch();
 
@@ -83,20 +100,7 @@ $(function(){
 
     //ajax call
     // append html content
-    $('.ajax-link').click(function(e){
-        e.preventDefault(); // cancel navigation
-        $('#content-container').html("<i class='fa fa-spinner fa-pulse fa-5x'></i><p> Loading </p>");
-        location.hash = this.id;
-        var splitResult = location.hash.split('#');
-        $.get(location.origin + location.pathname + '/' + splitResult[1], function(data){
-            $('#content-container').empty();
-            $('#content-container').append(data);
-        });
-    });
+    addGetLink();
 
-    $('.ajax-post').click(function(e){
-        e.preventDefault();
-
-    });
 });
 

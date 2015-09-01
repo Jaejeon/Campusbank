@@ -22,6 +22,7 @@ var joinEmailCheck = require('./joinEmailCheck'); // join process module
 var emailCheckProcess = require('./emailCheckProcess'); // email check process module
 var regUserSave = require('./regUserSave'); // registration of User who is waiting for authentication
 var emailUsedCheck = require('./emailUsedCheck'); // Email Used Check when user fill out the input of email
+var parseFormdata = require('./parseFormdata');
 
 passport.serializeUser(function(user, done){
   console.log('Serialize is called');
@@ -79,6 +80,13 @@ app.use(expressSession({secret: config.get('SECRET_KEY'),
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.post('/test/joinSubmit', function(req,res){
+    parseFormdata(req,res);
+    //console.log(JSON.parse(req.body));
+    //joinEmailCheck(req,res,newUser);
+    res.render('joinSubmit');
+});
 
 app.use('/test/:page', function(req,res){
   res.render(req.params.page);

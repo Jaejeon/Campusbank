@@ -13,7 +13,7 @@ block content
     div.row
       h5 기본정보
 
-    div.form-group.has-feedback
+    div.form-group
       div.row
         label(for='inputName', class='control-label').col-lg-3.col-md-4.col-sm-4.col-xs-4 이름(실명)
         input(type='text', id='inputName', name='username', placeholder='예) 홍길동', required='true',
@@ -46,7 +46,7 @@ block content
     div.form-group
       div.row
         label(class='control-label').col-lg-3.col-md-4.col-sm-4.col-xs-4 생년월일
-        div.default-birthday.col-lg-4#birthdayPicker
+        div.default-birthday.col-lg-4#birthdayPicker.form-group
 
     div.row
       h5 약관동의
@@ -75,7 +75,7 @@ block content
 
   script(src='/plugin/bootstrap-validator/dist/validator.min.js')
   script(src='/plugin/birthday-picker-master/js/jquery-birthday-picker.min.js')
-
+  script(src='/javascripts/joinInitFunc.js')
   script(src='/javascripts/readText.js')
   script.
     $('#birthdayPicker').birthdayPicker();
