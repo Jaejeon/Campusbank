@@ -15,3 +15,11 @@
 .intro-row-para{
   display:inline-block;
 }
+
+p.lead-para{
+  font-size:24px;
+  text-align:center;
+  height:80px;
+  line-height:80px;
+  margin-bottom:30px;
+}

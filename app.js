@@ -83,9 +83,14 @@ app.use(passport.session());
 
 app.post('/test/joinSubmit', function(req,res){
     parseFormdata(req,res);
-    //console.log(JSON.parse(req.body));
-    //joinEmailCheck(req,res,newUser);
-    res.render('joinSubmit');
+    var newUser = regUserSave(req,res);
+    joinEmailCheck(req,res,newUser);
+
+    res.render('joinSubmit', {userEmail: newUser.email});
+});
+
+app.use('/test/test', function(req,res){
+    res.render('joinSubmit', {userEmail: 'jaejeon@example.com'});
 });
 
 app.use('/test/:page', function(req,res){

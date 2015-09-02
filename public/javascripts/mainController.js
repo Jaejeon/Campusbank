@@ -1,6 +1,9 @@
 
 var addGetLink = function(){
+    $('.ajax-link').off();
+
     $('.ajax-link').click(function(e){
+        e.stopPropagation();
         e.preventDefault(); // cancel navigation
         $('#content-container').html("<i class='fa fa-spinner fa-pulse fa-5x'></i><p> Loading </p>");
         location.hash = this.id;

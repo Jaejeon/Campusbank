@@ -1,6 +1,8 @@
 
 //if there is ajax-post link, that's .js file has 'addPostLink' function
 var addPostLink = function(){
+    $('.ajax-post').off();
+
   $('.ajax-post').click(function(e){
       e.preventDefault();
       $('#join-form').validator('validate');
@@ -17,8 +19,8 @@ var addPostLink = function(){
           $.post(location.origin + location.pathname + '/' + splitResult[1],{
               formData : transData
           } ,function(data){
-              //$('#content-container').empty();
-              //$('#content-container').append(data);
+              $('#content-container').empty();
+              $('#content-container').append(data);
 
               //add link to appended contents
               addGetLink();
