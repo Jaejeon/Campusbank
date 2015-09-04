@@ -17,10 +17,6 @@ var addGetLink = function(){
             pageInit();
         });
     });
-};
-
-$(function(){
-    //$('input[type="checkbox"]').adaptiveSwitch();
 
     //list open&close event
     $('li.nav-list a:not(.sub-li a)').click(function(e){
@@ -59,7 +55,10 @@ $(function(){
             $(this).addClass('selected-sub-list');
         }
     });
+};
 
+$(function(){
+    //$('input[type="checkbox"]').adaptiveSwitch();
 
     //header-company show & hide handler
     $(window).scroll(function(){
@@ -67,7 +66,6 @@ $(function(){
             $('.header-company').stop().animate({
                 height:'0px'
             });
-
         }
         else {
             $('.header-company').stop().animate({
