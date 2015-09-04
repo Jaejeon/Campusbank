@@ -109,16 +109,27 @@ form(role='form' , action='/' , method='post')
             }
 
 
-    </br></br></br>
+    br
+
     div.row
         h5 Step3. 학력정보
 
     div.row
         h5 Step4. 기대출정보
+        div.col-lg-6.col-md-6.col-xs-6.col-sm-6.basic-info-select
+            div 기존 대출여부&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='lended', name='select_lended', value='lended_before', checked='true')
+                label(for='lended') &nbsp&nbsp있음&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='radio', id='non_lended', name='select_lended', value='non_lended_before', checked='true')
+                label(for='lended') &nbsp&nbsp없음&nbsp&nbsp&nbsp
+        div.col-lg-6.col-md-6.col-xs-6.col-sm-6.basic-info-select
+            div 총 대출잔액 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                input(type='text', id='amountOflending', name='amout_lending', placeholder='예) 1000000', required='true',
+                data-error='금액을 입력해주세요.').
+                label(for='amountOflending') &nbsp&nbsp원
 
     div.container-fluid
-        input(type='submit', value='다음 단계로', id='credit_next').col-lg-4.col-md-4.col-sm-4.col-xs-4.ajax-post
-
+        input(type='submit', value='다음 단계로', id='joinSubmit').col-lg-4.col-md-4.col-sm-4.col-xs-4.ajax-post
 
 
 
