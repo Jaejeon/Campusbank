@@ -1,0 +1,159 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<link href="http://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+		<style>
+			/* common */
+			.panel{
+				font-family: 'Jeju Gothic', serif;
+				width: 100%;
+				max-width: 600px;
+				margin: 0 auto;
+
+				border: 1px solid #ebebeb;
+				border-radius: 5px;
+			}
+			.panel > div{
+				padding: 10px;
+			}
+
+			.button-wrapper .button{
+				padding: 10px;
+				color: #fff;
+				min-width: 100px;
+				border-radius: 4px;
+				border: 1px solid transparent;
+				cursor: pointer;
+			}
+			.button-wrapper .button.accept{
+				background-color: #286090;
+				border-color: #204d74;
+				font-weight: 400;
+				text-align: center;				
+			}
+			.button-wrapper .button.accept:hover{
+				background-color: #204d74;
+			}
+
+			.button-wrapper .button.reject{
+				background-color: #d9534f;
+				border-color: #d43f3a;
+			}
+			.button-wrapper .button.reject:hover{
+				background-color: #c9302c;
+			}
+			/* header */
+			.header{
+				padding-bottom: 0px !important;
+				padding-left: 0px !important;
+
+				border-bottom: 1px solid #ebebeb;
+				overflow: auto;
+			}
+			.header > div{ float: left; }
+			.header .title{
+				font-weight: bold;
+				font-size: 18pt;
+
+				padding-left: 10px;
+				padding-right: 100px;
+				border-bottom: 3px solid #ebebeb;
+			}
+
+			/* content */
+			.panel .content{
+				padding: 30px 10px;
+			}
+			.panel .content .text{
+				margin: 0 auto;
+				font-size: 12pt;
+				line-height: 20pt;
+				text-align: center;
+			}
+			.panel .content .small{
+				font-size: 9pt;
+				line-height: 12pt;
+				color: gray;
+			}
+			.panel .content .button-wrapper{
+				margin: 40px 0;
+				text-align: center;
+			}
+			/* footer */
+			.panel .footer{
+				background-color: #efefef;
+				border-top: 1px solid #ebebeb;
+				overflow: auto;
+			}
+			.panel .footer .logo-wrapper{
+				float: left;
+				height: 80px;
+			}
+			.panel .footer .logo-wrapper img{
+				height: 100%;
+			}
+			.panel .footer .contacts{
+				padding-left: 30px;
+				float: right;
+				margin-top:10px;
+			}
+			.panel .footer th{
+				width: 80px;
+				text-align: right;
+			}
+			.panel .footer td{
+				padding-left: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="panel">
+			<div role="header" class="header" >
+
+				<div class="title">
+					사용자 인증 요청 메일
+				</div>
+			</div>
+			<div role="content" class="content">
+				<div class="text">
+					<b>"CAMPUS BANK"</b>에 가입해 주셔서 감사합니다.<br />
+					사이트 이용을 위해 아래 버튼을 클릭하여 사용자 이메일 인증을 마치시기 바랍니다.<br />
+				</div>
+				<div class="button-wrapper">
+					<button type="button" value="인증하기" class="button accept">인증하기</button>
+					<button type="button" value="취소하기" class="button reject">취소하기</button>
+				</div>
+				<div class="text small">
+					해당 메일을 통한 사용자 이메일 인증은 전송일로부터 7일간 유효하며,<br />
+					이후에는 http://foodomain.com에서 인증메일 재요청을 하셔야합니다.
+				</div>
+			</div>
+
+			<div role="footer" class="footer">
+				<div class="logo-wrapper">
+					<img class="logo" src="http://minhwan90.cafe24.com//workspace/rr.png">
+				</div>
+				<div class="contacts">
+					<table>
+						<tbody>
+							<tr>
+								<th>Tel</th>
+								<td>070-7162-0528</td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td>ask@redrocket.co.kr</td>
+							</tr>
+							<tr>
+								<th>Kakao</th>
+								<td>@캠퍼스뱅크</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>

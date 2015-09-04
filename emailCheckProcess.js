@@ -2,23 +2,28 @@ var async = require('async');
 var User = require('./models/user');
 var RegUser = require('./models/reg-user');
 var UserAuthnum = require('./models/user-authnum');
-var randomstring = require('randomstring');
 
 module.exports = function(req,res){
-
     async.apply(UserAuthnum.findOne, req, res);
     async.waterfall([
         function(callback){
-            UserAuthnum.findOne({authnum: req.query.authnum}, function(err,user){
+            UserAuthnum.findOne({authnum: req.body.authnum}, function(err,user){
+                //database connecting error
                 if(err) return callback(new Error('failed connecting to database: '+err.message), 'errCode1');
+
+                //authentication period expired
                 if(!user) return callback(new Error('Authentication period is expired'), 'errCode2');
-                if(user.authnum !== req.query.authnum) return callback(new Error('Not appropriate access to authentication', 'errCode3'));
+
+                //user exists, not correct authnum
+                if(user.authnum !== req.body.authnum) return callback(new Error('Not appropriate access to authentication', 'errCode3'));
                 callback(null, user);
             });
         },
         function(isAuthorized, callback){
             RegUser.findOne({email: isAuthorized.email}, function(err,user){
                 if(err) return callback(new Error('failed connecting to database: '+err.message), 'errCode4');
+
+                //authnum exists in the database, but regUser not exists (already authenticated)
                 if(!user) return callback(new Error('You may already be authenticated'), 'errCode5');
                 callback(null, user);
             });
@@ -40,8 +45,8 @@ module.exports = function(req,res){
                 userAuth.save(function(err,userauth){
                     if(err) callback(err);
                     userAuth.dbSuccess();
-                    if(userAuth.usertype == 'loan') return res.render('main');
-                    else return res.render('main_');
+                    if(userAuth.usertype == 'loan') return res.redirect('/test');
+                    else return res.redirect('/test');
                 });
             }
         }

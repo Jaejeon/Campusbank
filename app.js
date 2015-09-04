@@ -22,7 +22,8 @@ var joinEmailCheck = require('./joinEmailCheck'); // join process module
 var emailCheckProcess = require('./emailCheckProcess'); // email check process module
 var regUserSave = require('./regUserSave'); // registration of User who is waiting for authentication
 var emailUsedCheck = require('./emailUsedCheck'); // Email Used Check when user fill out the input of email
-var parseFormdata = require('./parseFormdata');
+var parseFormdata = require('./parseFormdata'); // parse Form data (POST method)
+var userAuthNumSave = require('./userAuthNumSave');
 
 passport.serializeUser(function(user, done){
   console.log('Serialize is called');
@@ -84,9 +85,17 @@ app.use(passport.session());
 app.post('/test/joinSubmit', function(req,res){
     parseFormdata(req,res);
     var newUser = regUserSave(req,res);
-    joinEmailCheck(req,res,newUser);
+    var userAuthNum = userAuthNumSave(req,res, newUser);
+
+    app.render('emailAuthContent', {userAuthNum: userAuthNum.authnum}, function(err,html){
+        joinEmailCheck(req,res,newUser,html);
+    });
 
     res.render('joinSubmit', {userEmail: newUser.email});
+});
+
+app.post('/test/emailAuth', function(req,res){
+    emailCheckProcess(req,res);
 });
 
 app.use('/test/test', function(req,res){
@@ -144,57 +153,6 @@ app.get('/emailCheck', function(req,res){
 
 app.get('/emailUsedCheck', function(req,res){
   emailUsedCheck(req,res);
-});
-
-app.use(function(req,res,next){
-  //if user is logged in, variable 'isLoggedIn' is put to req.
-
-  if(req.user){
-    req.isLoggedIn = true;
-    req.userName = req.user.username;
-  }
-  next();
-});
-
-app.use('/mypage', function(req,res,next){
-    if(!req.user) res.render('notAllowed');
-    else{
-        res.render('mypage', {
-            type: req.user.usertype,
-            isLoggedIn: req.isLoggedIn,
-            userName: req.userName,
-            userBirth: req.user.birth,
-            userEmail: req.user.email
-        });
-    }
-});
-
-app.use('/:type/:page', function(req,res,next){
-  if(!req.user) res.render('login', {type: req.params.type});
-  else res.render(req.params.type + '/' + req.params.page,
-    {
-        selected: req.params.page,
-        type: req.params.type,
-        isLoggedIn: req.isLoggedIn,
-        userName: req.userName
-    });
-});
-
-app.use('/:page', function(req,res,next){
-  var type;
-  if(req.params.page === 'main') type = 'loanee';
-  else type = 'lender';
-  res.render(req.params.page,
-      {
-        selected: req.params.page,
-        type: type,
-        isLoggedIn: req.isLoggedIn,
-        userName: req.userName
-      });
-});
-
-app.use('/', function(req,res,next){
-    res.render('index');
 });
 
 app.use('/users', users);

@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var UserAuthnumSchema = mongoose.Schema({
   email: String,
   authnum: String,
-  createdAt: {type: Date, expires:60}
+  createdAt: {type: Date, expires:500}
 });
 
 //model 'User' and export 'User'
