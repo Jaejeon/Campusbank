@@ -1,3 +1,18 @@
 ﻿
 block content
-  h4 Register
+  h4 대출신청
+  div.row
+    form(action='', method='post')#regist-form
+      p.step-para Step1. 대출목적
+      div.form-group
+        label.control-label.col-lg-2(for='purpose-select') 분류
+        select.col-lg-10.fill-in-form#purpose-select
+          option test1
+          option test2
+          option test3
+      div.form-group
+        label.control-label(for='purpose-text') 상세내용
+        textarea.form-control#purpose-text
+
+  script(src='/plugin/bootstrap-validator/dist/validator.min.js')
+  script(src='/javascripts/registerInitFunc.js')
