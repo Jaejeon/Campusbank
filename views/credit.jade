@@ -50,9 +50,20 @@ form(role='form' , action='/' , method='post')
         // 소득금액
         div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
             div 소득금액&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                input(type='radio', id='basic-info-select12', name='te_type', value='dddd', checked='true')
-                label(for='basic-info-select12') 졸업
+                input(type='text', id='inputIncome', name='Income', placeholder='예) 1000000', required='true',
+                data-error='금액을 입력해주세요.').
+                label(for='income') 원
 
+        br
+        br
+
+        input#sample3_postcode(type='text', placeholder='우편번호')
+        |  -
+        input(type='button', onclick='sample3_execDaumPostcode()', value='우편번호 찾기')
+        br
+        #wrap(style='display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative')
+            img#btnFoldWrap(src='//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png', style='cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1', onclick='foldDaumPostcode()', alt='접기 버튼')
+        input#sample3_address.d_form.large(type='text', placeholder='주소')
 
     </br></br></br>
     div.row
@@ -62,4 +73,23 @@ form(role='form' , action='/' , method='post')
         h5 Step4. 기대출정보
 
     div.container-fluid
-        input(type='submit', value='다음 단계로', id='join-submit').col-lg-4.col-md-4.col-sm-4.col-xs-4
+        input(type='submit', value='다음 단계로', id='credit_next').col-lg-4.col-md-4.col-sm-4.col-xs-4.ajax-post
+
+
+
+
+
+script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
+script(type='text/javascript').
+    function openDaumZipAddress() {
+        new daum.Postcode({
+            oncomplete: function (data) {
+                jQuery('#postcode1').val(data.postcode1);
+                jQuery('#postcode2').val(data.postcode2);
+                jQuery('#address').val(data.address);
+                jQuery('#address_etc').focus();
+                console.log(data);
+            }
+        }).open();
+    }
+
