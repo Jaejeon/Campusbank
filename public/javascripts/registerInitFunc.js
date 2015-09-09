@@ -11,5 +11,13 @@ var pageInit = function(){
     //page init function
     addPostLink();
     $('#regist-form').validator();
+    readText('agree-text', '/texts/Survey.txt');
+
+    //question mark popup event handler
+    $('.question-button').click(function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        $(this).parent().find('.modal').modal();
+    });
 };
 

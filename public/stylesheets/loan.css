@@ -1,5 +1,5 @@
 
-.row img{
+.intro-row img{
   width:20%;
   height:auto;
 }
@@ -45,6 +45,113 @@ p.content-para{
   font-weight:600;
 }
 
-#content-container .form-control{
+.form-container{
+  margin-bottom: 150px;
+}
 
+.right-space-10{
+  margin-right:10px;
+}
+
+.right-space-30{
+  margin-right: 30px;
+}
+
+.red-text{
+  color:red;
+}
+
+.orange-text{
+  color:#eb6000;
+}
+
+.right-float{
+  float:right;
+}
+
+.form-subcontainer{
+  overflow:auto;
+  margin-bottom:10px;
+}
+
+label[for='step5-1'], label[for='step5-2']{
+  text-align: center;
+  line-height:34px;
+}
+
+#regist-form #agree-text{
+  width: 80%;
+  height:200px;
+}
+
+#regist-form .red-text{
+  font-size:14px;
+}
+
+.popup{
+  display:none;
+  background-color: black;
+  opacity:0.7;
+  position:fixed;
+  left:0px;
+  top:0px;
+  z-index:9998;
+}
+
+.popup-content{
+  position:fixed;
+  width:40%;
+  height:50%;
+  left:30%;
+  top:25%;
+  background-color: white;
+  z-index:9999;
+}
+
+.question-button{
+  background-color:white;
+  border:none;
+}
+
+.modal-body-divider{
+  border-bottom:solid 1px #cccccc;
+  margin-bottom:20px;
+}
+
+#content-container #modal-question-step2 p{
+  font-size: 16px;
+  color: #eb6000;
+}
+
+#content-container #modal-question-step3 p{
+  font-size: 16px;
+  color: #eb6000;
+}
+
+#content-container #modal-question-step4 p{
+  font-size: 16px;
+  color: #eb6000;
+}
+
+.modal-body{
+  font-size: 14px;
+}
+
+#content-container .modal h4{
+  border:none;
+  margin-bottom:0px;
+  height:40px;
+  line-height:40px;
+}
+
+#regist-form input[type='submit']{
+  width:150px;
+  height:50px;
+  background-color: #002b57;
+  border-radius: 10px;
+  color:white;
+}
+
+#agree-box{
+  margin-bottom: 30px;
 }
