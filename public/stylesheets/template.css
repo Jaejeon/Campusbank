@@ -486,3 +486,39 @@ li.open-list li{
     clear:both;
   }
 }
+
+
+
+#content-container .credit_eval{
+  position: absolute;
+  left:0px;
+  right:0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:20px;
+  height:50px;
+  border-radius: 20px;
+  background-color: #eb6000;
+  color:white;
+  font-weight:bold;
+  font-size:18px;
+  outline:none;
+}
+
+#content-container .basic-info-select{
+  height:40px;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+#content-container .basic-info-select label {
+  font-size: 12px;
+  font-weight: 200;
+  color: black;
+  margin-left: 5px;
+}
+
+#content-container .income_box{
+  width:130px;
+  height:30px;
+}
