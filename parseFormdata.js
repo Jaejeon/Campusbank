@@ -14,6 +14,9 @@ module.exports = function(req,res){
         }
     }
 
+    //postKey is for "parameter names"
     req.postKey = postKey;
+
+    //postVal is for "parameter values"
     req.postVal = postVal;
 };

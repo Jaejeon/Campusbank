@@ -53,19 +53,24 @@ var addLoginPost = function(){
     $('#login-post').click(function(e){
         e.preventDefault();
 
-        var transData = $('#modal-login-form').serialize();
-        console.log(transData);
+        var transData = $('#modal-login-form').serializeArray();
         $.post(location.origin + location.pathname + '/login',{
                 formData : transData
             }, function(data){
-
+                $('#content-container').empty();
+                $('#content-container').append(data);
             }
         );
+
+        $('#modal-login').modal('hide');
     });
 };
 
 $(function(){
-    //$('input[type="checkbox"]').adaptiveSwitch();
+    //sidebar custom scroll
+    $('#sidebar-wrapper').mCustomScrollbar({
+        theme:"minimal-dark"
+    });
 
     //header-company show & hide handler
     $(window).scroll(function(){

@@ -82,17 +82,25 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.post('/test/login', function(req,res,next){
+
+    /* Because "SerializeArray" method does not transfer the post data in form req.body.---,
+    *   1. parse the data using parseFormdata(req,res)
+    *   2. put them in that form req.body.email & req.body.password (passport.js validates user in that form)
+    */
+    parseFormdata(req,res);
+    req.body.email = req.postVal[0];
+    req.body.password = req.postVal[1];
+    next();
+});
+
 app.post('/test/login',
-    
     passport.authenticate('local',
         {
-            failureRedirect: '/login',
+            successRedirect:'/test/loginSuccess',
+            failureRedirect:'/test/loginFail',
             failureFlash: true
-        }),
-
-        function(req,res){
-            res.redirect('/test');
-        }
+        })
 );
 
 app.post('/test/joinSubmit', function(req,res){
@@ -109,6 +117,14 @@ app.post('/test/joinSubmit', function(req,res){
 
 app.post('/test/emailAuth', function(req,res){
     emailCheckProcess(req,res);
+});
+
+app.get('/test/loginSuccess', function(req,res){
+    res.render('loginSuccess', {username: req.user.username});
+});
+
+app.get('/test/loginFail', function(req,res){
+    res.render('loginFail');
 });
 
 app.use('/test/test', function(req,res){

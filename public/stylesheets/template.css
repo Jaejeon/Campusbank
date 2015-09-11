@@ -486,3 +486,32 @@ li.open-list li{
     clear:both;
   }
 }
+
+ul.loan-month-parent{
+  padding:0px;
+  margin:0px;
+}
+
+li.loan-month-element1, li.loan-month-element2{
+  width:16px;
+  height:16px;
+  border-radius:8px;
+  list-style-type:none;
+  display:inline-block;
+}
+
+li.loan-month-element1{
+  background-color: #eb6000;
+}
+
+li.loan-month-element2{
+  background-color: #002b57;
+}
+
+li.loan-month-line{
+  border-top:solid 1px #444444;
+  width:16px;
+  height:8px;
+  list-style-type:none;
+  display:inline-block;
+}

@@ -58,7 +58,7 @@ p.content-para{
 }
 
 .red-text{
-  color:red;
+  color:#ff1a0a;
 }
 
 .orange-text{
@@ -115,6 +115,7 @@ label[for='step5-1'], label[for='step5-2']{
 
 .modal-body-divider{
   border-bottom:solid 1px #cccccc;
+  margin-top:15px;
   margin-bottom:20px;
 }
 
@@ -155,3 +156,20 @@ label[for='step5-1'], label[for='step5-2']{
 #agree-box{
   margin-bottom: 30px;
 }
+
+#modal-question-step3 .row-margin-top{
+  margin-top:20px;
+}
+
+#modal-question-step3 small{
+  font-size: 14px;
+}
+
+#modal-question-step4 small{
+  font-size: 14px;
+}
+
+#modal-question-step4 .row-margin-top{
+  margin-top:20px;
+}
+
