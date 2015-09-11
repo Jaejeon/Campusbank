@@ -108,8 +108,39 @@ html
               //input(type='checkbox', data-switch-left='투자자 모드로 전환', data-switch-right='대출자 모드로 전환')#loan-lend-switch
               a.rightAssign.col-lg-1.ajax-link#join
                 span 회원가입
-              a.rightAssign.col-lg-1.ajax-link#login
+              button.rightAssign.col-lg-1#login
                 span 로그인
+              div.modal.fade#modal-login
+                div.modal-dialog
+                  div.modal-content
+                    div.modal-header
+                      button(type='button', data-dismiss='modal').close &times;
+                      h4.modal-title 캠퍼스뱅크 로그인
+                    div.modal-body
+                      form(role='form', action='/test/login', method='post')#modal-login-form
+                        div.row
+                          div.col-xs-2
+                          div.col-xs-8
+                            div.icon-div
+                              i.fa.fa-user.fa-lg
+                            div.input-div
+                              input(type='text', placeholder='Email', name='email')
+                          div.col-xs-2
+                        div.row
+                          div.col-xs-2
+                          div.col-xs-8
+                            div.icon-div
+                              i.fa.fa-lock.fa-lg
+                            div.input-div
+                              input(type='text', placeholder='Password', name='password')
+                          div.col-xs-2
+                        div.row
+                          div.col-xs-2
+                          div.col-xs-8
+                            input(type='submit', value='로그인')#login-post
+                          div.col-xs-2
+                    div.modal-footer
+                      button(type='button', data-dismiss='modal').btn.btn-default Close
               ul.icon-list
                 li
                   a#comment-icon

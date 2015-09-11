@@ -82,6 +82,19 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.post('/test/login',
+    
+    passport.authenticate('local',
+        {
+            failureRedirect: '/login',
+            failureFlash: true
+        }),
+
+        function(req,res){
+            res.redirect('/test');
+        }
+);
+
 app.post('/test/joinSubmit', function(req,res){
     parseFormdata(req,res);
     var newUser = regUserSave(req,res);
@@ -117,29 +130,6 @@ app.use(function(req,res,next){
     next();
 });
 */
-app.post('/login',
-  passport.authenticate('local',
-     {
-         failureRedirect: '/login',
-         failureFlash: true
-     }),
-  function(req,res){
-    //if authorization is successful, this callback function will be called.
-        res.redirect('/main');
-    });
-
-app.post('/join', function(req, res){
-  var newUser = regUserSave(req,res);
-  joinEmailCheck(req,res,newUser);
-  res.render('emailCheck');
-});
-
-app.post('/emailAgain', function(req,res){
-    var newUser = new RegUser({
-       email: req.body.email
-    });
-    joinEmailCheck(req,res,newUser);
-});
 
 app.get('/logout', function(req,res){
   req.session.destroy();
@@ -147,9 +137,6 @@ app.get('/logout', function(req,res){
 });
 
 //GET from email.
-app.get('/emailCheck', function(req,res){
-    emailCheckProcess(req,res);
-});
 
 app.get('/emailUsedCheck', function(req,res){
   emailUsedCheck(req,res);

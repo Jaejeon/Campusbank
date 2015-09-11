@@ -5,7 +5,8 @@ var addGetLink = function(){
     $('.ajax-link').click(function(e){
         e.stopPropagation();
         e.preventDefault(); // cancel navigation
-        $('#content-container').html("<i class='fa fa-spinner fa-pulse fa-5x'></i><p> Loading </p>");
+        $('#content-container').html("<div style='position:absolute; top:40%; left:45%'>" +
+            "<i class='fa fa-spinner fa-pulse fa-5x'></i><p style='font-size:16px;'> Page Loading... </p></div>");
         location.hash = this.id;
         var splitResult = location.hash.split('#');
         $.get(location.origin + location.pathname + '/' + splitResult[1], function(data){
@@ -19,6 +20,7 @@ var addGetLink = function(){
     });
 
     //list open&close event
+    // re-register
     $('li.nav-list a:not(.sub-li a)').click(function(e){
         e.stopPropagation();
         if($(this).parent().hasClass('open-list')){
@@ -45,15 +47,20 @@ var addGetLink = function(){
         });
     });
 
-    //sub list select event handler
-    $('li.sub-li').click(function(e){
-        e.stopPropagation();
-        if($(this).hasClass('selected-sub-list')) ;
-        else{
-            var element = document.getElementsByClassName('selected-sub-list');
-            for(i = 0; i < element.length; i++) $(element[0]).removeClass('selected-sub-list');
-            $(this).addClass('selected-sub-list');
-        }
+};
+
+var addLoginPost = function(){
+    $('#login-post').click(function(e){
+        e.preventDefault();
+
+        var transData = $('#modal-login-form').serialize();
+        console.log(transData);
+        $.post(location.origin + location.pathname + '/login',{
+                formData : transData
+            }, function(data){
+
+            }
+        );
     });
 };
 
@@ -84,6 +91,17 @@ $(function(){
 
     });
 
+    //sub list select event handler
+    $('li.sub-li').click(function(e){
+        e.stopPropagation();
+        if($(this).hasClass('selected-sub-list')) ;
+        else{
+            var element = document.getElementsByClassName('selected-sub-list');
+            for(i = 0; i < element.length; i++) $(element[0]).removeClass('selected-sub-list');
+            $(this).addClass('selected-sub-list');
+        }
+    });
+
     //icon-list show & hide handler
     $('.icon-list').children('li').hover(function(e){
         e.stopPropagation();
@@ -102,6 +120,12 @@ $(function(){
     //ajax call
     // append html content
     addGetLink();
+    addLoginPost();
+
+    //modal login handler
+    $('#login').click(function(){
+        $('#modal-login').modal();
+    });
 
 });
 

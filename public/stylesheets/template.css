@@ -52,7 +52,7 @@ body:after{
   background-color:#eb6000;
 }
 #comment-icon i{
-  color: #dddddd;
+  color: #f7f3ea;
   font-weight:bold;
 }
 
@@ -61,7 +61,7 @@ body:after{
   background-color: #ff9346;
 }
 #question-icon i{
-  color:#dddddd;
+  color:#f7f3ea;
   font-weight:bold;
 }
 .stage{
@@ -97,16 +97,90 @@ a{
   width:auto;
 }
 
-#join:hover{
+#join:hover span{
   color:#337ab7
 }
 
 #login{
   width:auto;
+  background-color:white;
+  font-weight: 700;
+  border:none;
+  outline:none;
+  padding: 0 15px 0 15px;
+  color:#444444;
 }
 
 #login:hover{
   color:#337ab7
+}
+
+#modal-login .modal-dialog{
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+}
+
+#modal-login .modal-content{
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+}
+
+#modal-login .modal-header{
+  background-color:#eb6000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom:20px;
+}
+
+#modal-login .modal-header h4{
+  text-align:center;
+  color:white;
+  font-weight:600;
+  font-size:16px;
+}
+
+#modal-login input[type='submit']{
+  background-color:#eb6000;
+  color:white;
+  font-weight:600;
+  border:none;
+  margin-bottom:10px;
+}
+
+#modal-login input{
+  width:100%;
+}
+
+#modal-login .icon-div{
+  text-align:center;
+  padding:0px;
+  display:inline-block;
+  width:12%;
+  height:40px;
+  margin-bottom: 20px;
+  background-color:#676056;
+}
+
+#modal-login .input-div{
+  display:inline-block;
+  width:88%;
+  height:40px;
+}
+
+#modal-login .input-div input{
+  height:40px;
+  border:none;
+  font-size:16px;
+  text-indent:10px;
+  background-color: #f7f3ea;
+}
+
+#modal-login .fa-user{
+  color:#f7f3ea;
+}
+
+#modal-login .fa-lock{
+  color:#f7f3ea;
 }
 
 header a:hover{

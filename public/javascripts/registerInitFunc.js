@@ -20,4 +20,3 @@ var pageInit = function(){
         $(this).parent().find('.modal').modal();
     });
 };
-
