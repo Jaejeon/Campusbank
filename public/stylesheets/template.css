@@ -549,5 +549,9 @@ li.loan-month-line {
 #content-container .income_box{
   width:130px;
   height:30px;
->>>>>>> 8a2709195fcb0647fee1c36d97ac655955c90894
+}
+
+#content-container .address_box{
+  width:250px;
+  height:30px;
 }
