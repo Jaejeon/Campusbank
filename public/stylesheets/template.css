@@ -662,6 +662,11 @@ li.loan-month-line {
   height:30px;
 }
 
+#content-container .address_box{
+  width:250px;
+  height:30px;
+}
+
 #sample4_postcode, #sample4_jibunAddress, #detail-address{
   font-size: 14px;
 }
