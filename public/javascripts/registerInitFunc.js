@@ -19,4 +19,12 @@ var pageInit = function(){
         e.preventDefault();
         $(this).parent().find('.modal').modal();
     });
+
+    $('#step4-1').change(function(){
+       $('#step4-3').val(parseInt($('#step4-1').val()) + parseInt($('#step4-2').val()));
+    });
+
+    $('#step4-2').change(function(){
+        $('#step4-3').attr('value', parseInt($('#step4-1').val()) + parseInt($('#step4-2').val()));
+    });
 };

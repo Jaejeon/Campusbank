@@ -8,8 +8,10 @@ var addGetLink = function(){
         $('#content-container').html("<div style='position:absolute; top:40%; left:45%'>" +
             "<i class='fa fa-spinner fa-pulse fa-5x'></i><p style='font-size:16px;'> Page Loading... </p></div>");
         location.hash = this.id;
+        if($(this).hasClass('loan-link')) location.hash += '#loan';
+        else if($(this).hasClass('lend-link')) location.hash += '#lend';
         var splitResult = location.hash.split('#');
-        $.get(location.origin + location.pathname + '/' + splitResult[1], function(data){
+        $.get(location.origin + '/' + splitResult[2] + '/' + splitResult[1], function(data){
             $('#content-container').empty();
             $('#content-container').append(data);
 
@@ -54,16 +56,29 @@ var addLoginPost = function(){
         e.preventDefault();
 
         var transData = $('#modal-login-form').serializeArray();
-        $.post(location.origin + location.pathname + '/login',{
+        $.post(location.origin + '/login',{
                 formData : transData
-            }, function(data){
+            }, function(data, status, jqXHR){
                 $('#content-container').empty();
                 $('#content-container').append(data);
+                if(jqXHR.getResponseHeader('isLoggedIn')){
+                    $('#join').css('display', 'none');
+                    $('#login').css('display','none');
+                    var loginAppendHtml = "<p class='rightAssign col-xs-4'><u id='mypage' class='ajax-link'>"+
+                        jqXHR.getResponseHeader('username') +"</u>님 안녕하세요.</p>";
+                    $('#header-bar').append(loginAppendHtml);
+                    addGetLink();
+                }
             }
         );
 
         $('#modal-login').modal('hide');
     });
+};
+
+var newPopup = function(url){
+  popupWindow = window.open(url, 'popUpWindow', 'height=400, width=600, resizable=yes,' +
+      ' menubar=no, location=no, directories=no, status=yes');
 };
 
 $(function(){
@@ -72,6 +87,7 @@ $(function(){
         theme:"minimal-dark"
     });
 
+    /*
     //header-company show & hide handler
     $(window).scroll(function(){
         if($(window).scrollTop() >= 90){
@@ -95,6 +111,7 @@ $(function(){
         }
 
     });
+    */
 
     //sub list select event handler
     $('li.sub-li').click(function(e){
@@ -124,8 +141,8 @@ $(function(){
 
     //ajax call
     // append html content
-    addGetLink();
     addLoginPost();
+    addGetLink();
 
     //modal login handler
     $('#login').click(function(){

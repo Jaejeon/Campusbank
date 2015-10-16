@@ -3,7 +3,6 @@
 
 
 block content
-form(role='form' , action='/' , method='post')
     div.row
         h5 Step1. 본인인증
         </br></br></br></br></br></br>
@@ -52,28 +51,53 @@ form(role='form' , action='/' , method='post')
         // 소득금액
         div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
             div 소득금액&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                input(type='text', id='inputIncome', name='Income', placeholder='예) 1000000', required='true',
+                input(type='text', id='inputIncome', name='Income', placeholder='예) 88', required='true',
                 data-error='금액을 입력해주세요.').income_box
-                label(for='income') 원
+                label(for='income') 만원
 
-        br
-        br
+        div.basic-info-select
+            table.col-xs-12
+                tbody
+                    tr
+                        th(scope='row')
+                            p.red-text 주민등록상
+                            p 주소지
+                        td
+                            div.row
+                                input(type='text', id='sample4_postcode', onclick='find_address()', placeholder='우편번호', readonly='true').col-xs-2
+                                input(type='button', onclick='find_address()', value='주소 검색', style='font-size:14px;').col-xs-2.btn-default
+                            div.row
+                                input(type='text', id='sample4_jibunAddress', onclick='find_address()', placeholder='지번주소', readonly='true').col-md-6.col-xs-8
+                                input(type='text', id='detail-address', placeholder='나머지주소').col-md-5.col-xs-8
+                            div.row
+                                input(type='text', value='도로명주소', readonly='true')#button_roadAddress
+                                input(type='text', id='sample4_roadAddress', readonly='true').col-xs-6
+                    tr
 
-        div.col-lg-3.col-md-3.col-xs-3.col-sm-3.basic-info-select 주소
-            input(type='text', id='sample4_postcode', placeholder='우편번호')
-        div.col-lg-3.col-md-2.col-xs-2.col-sm-2.basic-info-select
-            input(type='button', onclick='find_address()', value='우편번호 찾기')
-        div.col-lg-3.col-md-3.col-xs-3.col-sm-3.basic-info-select
-            input(type='text', id='sample4_roadAddress', placeholder='도로명주소')
-        div.col-lg-3.col-md-3.col-xs-3.col-sm-3.basic-info-select
-            input(type='text',id='sample4_jibunAddress', placeholder='지번주소')
-
-
-
-    br
 
     div.row
         h5 Step3. 학력정보
+        table.col-xs-12
+            tr
+                td
+                    div.col-sm-4
+                        span 소속학교
+                        input(type='text', placeholder='학교', readonly='true', id='credit-school-search')
+                    div.col-sm-4
+                        span 단과대학
+                        input(type='text', placeholder='단과대학', readonly='true', id='credit-depart-search')
+                    div.col-sm-4
+                        span 소속학과
+                        input(type='text', placeholder='학과', readonly='true', id='credit-major-search')
+                    div.col-sm-4
+                        input(type='text', value='학교 검색', readonly='true')#button_schoolSearch
+                td
+                td
+            tr
+            tr
+            tr
+            tr
+
 
     div.row
         h5 Step4. 기대출정보
@@ -90,7 +114,7 @@ form(role='form' , action='/' , method='post')
                 label(for='amountOflending') &nbsp&nbsp원
 
     div.container-fluid
-        input(type='submit', value='다음 단계로').col-lg-4.col-md-4.col-sm-4.col-xs-4.ajax-post.credit_eval
+        input(type='button', value='다음 단계로')#credit-auth.col-xs-4.ajax-post.credit_eval
 
-
+    script(src='/javascripts/creditInitFunc.js')
 

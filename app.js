@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var dbConfig = require('./db.js');
 var mongoose = require('mongoose');
 var User = require('./models/user');
-var RegUser = require('./models/reg-user');
+var LoanCard = require('./models/loan-card');
 mongoose.connect(dbConfig.url);
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -23,7 +23,11 @@ var emailCheckProcess = require('./emailCheckProcess'); // email check process m
 var regUserSave = require('./regUserSave'); // registration of User who is waiting for authentication
 var emailUsedCheck = require('./emailUsedCheck'); // Email Used Check when user fill out the input of email
 var parseFormdata = require('./parseFormdata'); // parse Form data (POST method)
+var interLoanCardProc = require('./interLoanCardProc'); // for 'register' page, loan card rendering process
 var userAuthNumSave = require('./userAuthNumSave');
+var searchSchool = require('./searchSchool'); // search school process
+var searchDepart = require('./searchDepart'); // search depart process
+var searchMajor = require('./searchMajor'); // search major process
 
 passport.serializeUser(function(user, done){
   console.log('Serialize is called');
@@ -82,7 +86,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.post('/test/login', function(req,res,next){
+app.post('/login', function(req,res,next){
 
     /* Because "SerializeArray" method does not transfer the post data in form req.body.---,
     *   1. parse the data using parseFormdata(req,res)
@@ -94,16 +98,16 @@ app.post('/test/login', function(req,res,next){
     next();
 });
 
-app.post('/test/login',
+app.post('/login',
     passport.authenticate('local',
         {
-            successRedirect:'/test/loginSuccess',
-            failureRedirect:'/test/loginFail',
+            successRedirect:'/loginSuccess',
+            failureRedirect:'/loginFail',
             failureFlash: true
         })
 );
 
-app.post('/test/joinSubmit', function(req,res){
+app.post('/joinSubmit', function(req,res){
     parseFormdata(req,res);
     var newUser = regUserSave(req,res);
     var userAuthNum = userAuthNumSave(req,res, newUser);
@@ -115,27 +119,91 @@ app.post('/test/joinSubmit', function(req,res){
     res.render('joinSubmit', {userEmail: newUser.email});
 });
 
-app.post('/test/emailAuth', function(req,res){
+app.post('/emailAuth', function(req,res){
     emailCheckProcess(req,res);
 });
 
-app.get('/test/loginSuccess', function(req,res){
+app.get('/search-school/:category', function(req,res){
+    if(req.params.category == 'school') searchSchool(req, res);
+    else if(req.params.category == 'depart') searchDepart(req,res);
+    else if(req.params.category == 'major') searchMajor(req,res);
+});
+
+app.get('/search-school', function(req,res){
+    res.render('search-school');
+});
+
+app.get('/loginSuccess', function(req,res){
+    res.set('isLoggedIn', 'true');
+    res.set('username', req.user.username);
     res.render('loginSuccess', {username: req.user.username});
 });
 
-app.get('/test/loginFail', function(req,res){
+app.get('/loginFail', function(req,res){
     res.render('loginFail');
 });
 
-app.use('/test/test', function(req,res){
-    res.render('joinSubmit', {userEmail: 'jaejeon@example.com'});
-});
-
-app.use('/test/:page', function(req,res){
-  res.render(req.params.page);
+app.use('/mypage', function(req,res){
+    res.render('mypage');
 });
 
 app.use('/test', function(req,res){
+/*
+    var newUser = new User({
+        email: 'testuser2@redrocket.co.kr',
+        password: 'testpassword',
+        birth: new Date('2015-09-25'),
+        usertype: 'loan',
+        username: 'TEST10',
+        loan:{
+            sex: 'male', //male, female
+            military: true, //military service true, false
+            status: 'graduate', // graduate, inSchool, LOA (leave of absence)
+            credit: 'B0',
+            income:{
+                exist: true, // income exist, or not
+                jobType: 'temporary', // regular, temporary
+                amount: 800  // amount of income
+            },
+            address:{
+                newSystem: 'TEST-TEST', // Road Name Address
+                oldSystem: 'TEST-TEST', // parcel address
+                zipCode: '150-989'
+            },
+            eduInfo:{
+                school: '연세대학교', // korea, yousei, seoul, ...
+                major: '컴퓨터학과', // business management, computer science, ...
+                admissionYear: 2010, // 2010, 2011, 2012, ...
+                completeTerm: 6, // 2, 3, 4, ...
+                gpa: 3.5, // 3.3, 4.1, ...
+                gpaMax: 4.5 // 4.3, 4.5
+            },
+            loanInfo:{
+                exist: true, // loan history existence
+                                // true, false
+                amount: 1000 // 1000, 1500, ...
+            }
+        }
+    });
+
+    newUser.save();
+*/
+
+    res.render('renderTest');
+});
+
+app.use('/:type/:page', function(req,res){
+    if(req.params.page === 'register'){
+        interLoanCardProc(req,res); //render 'register' page
+    }
+
+    else{
+        res.render(req.params.page);
+    }
+
+});
+
+app.use('/', function(req,res){
   res.render('template');
 });
 

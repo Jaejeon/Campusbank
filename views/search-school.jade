@@ -1,0 +1,104 @@
+﻿link(rel='stylesheet', type='text/css', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+link(rel='stylesheet', type='text/css', href='/plugin/scrollbar/jquery.mCustomScrollbar.css')
+script(src='/bower_components/jquery/dist/jquery.min.js')
+script(src='/plugin/scrollbar/jquery.mCustomScrollbar.concat.min.js')
+
+body
+  div
+    h4(style='text-align:center') 캠퍼스뱅크 학교검색
+    div.row
+      input(type='text', placeholder='예) 고려대학교', style='width:90%; margin-left:5%; font-size:20px')#school
+      i.fa.fa-search(style='margin-left: 10px; color:#aaaaaa', onclick='searchSchool()')
+    div.row#div-result-container
+      div#school-result-container.result-container(style='height:40%; width:180px; margin-left: 20px;')
+      div#depart-result-container.result-container(style='height:40%; width:180px; margin-left: 20px;')
+      div#major-result-container.result-container(style='height:40%; width:180px; margin-left: 20px;')
+      input(type='text', id='schoolSelected', name='school', readonly='true')
+      input(type='text', id='departSelected', name='depart', readonly='true')
+      input(type='text', id='majorSelected', name='major', readonly='true')
+
+      input(type='button', value='완료', onclick='self.opener.document.getElementById("credit-school-search").value = document.getElementById("schoolSelected").value; self.opener.document.getElementById("credit-depart-search").value = document.getElementById("departSelected").value; self.opener.document.getElementById("credit-major-search").value = document.getElementById("majorSelected").value; self.close();')
+
+  script.
+    var searchSchool = function(){
+      $('#school-result-container').mCustomScrollbar("destroy");
+      $('#school-result-container').empty();
+      $('#depart-result-container').mCustomScrollbar("destroy");
+      $('#depart-result-container').empty();
+      $('#major-result-container').mCustomScrollbar("destroy");
+      $('#major-result-container').empty();
+
+      $.get('/search-school/school', {schoolQuery: $('#school').val()}, function(data){
+        $('#school-result-container').mCustomScrollbar("destroy");
+        $('#school-result-container').empty();
+        $.each(data.searchResult, function(index, arr){
+          var appendHtml = '<p class="school-name school-select">'+ arr.school +'</p>';
+          $('#school-result-container').append(appendHtml);
+        });
+
+        $('#school-result-container').mCustomScrollbar({
+          theme:"dark"
+        });
+
+        $('.school-select').click(function(){
+          $('#schoolSelected').val($(this).text());
+          $(this).parent().children('p').css('color','black');
+          $(this).css('color', '#eb6000');
+          $.get('/search-school/depart', {departQuery: $(this).text()}, function(data){
+            $('#depart-result-container').mCustomScrollbar("destroy");
+            $('#depart-result-container').empty();
+
+            $.each(data.searchResult, function(index, depart){
+              var appendHtml = '<p class="depart-name depart-select">' + depart + '</p>';
+              $('#depart-result-container').append(appendHtml);
+            });
+
+            $('#depart-result-container').mCustomScrollbar({
+              theme:"dark"
+            });
+
+            $('.depart-select').click(function(){
+              $('#departSelected').val($(this).text());
+              $(this).parent().children('p').css('color', 'black');
+              $(this).css('color', '#eb6000');
+              var query = [];
+              query.push($('#schoolSelected').val());
+              query.push($(this).text());
+              $.get('/search-school/major', {majorQuery: query}, function(data){
+                $('#major-result-container').mCustomScrollbar("destroy");
+                $('#major-result-container').empty();
+
+                $.each(data, function(index, major){
+                  var appendHtml = '<p class="major-name major-select">' + major + '</p>';
+                  $('#major-result-container').append(appendHtml);
+                });
+
+                $('#major-result-container').mCustomScrollbar({
+                  theme:"dark"
+                });
+
+                $('.major-select').click(function(){
+                  $('#majorSelected').val($(this).text());
+                  $(this).parent().children('p').css('color', 'black');
+                  $(this).css('color', '#eb6000');
+                });
+              });
+            });
+          });
+        });
+      });
+    }
+
+  style.
+    .school-select, .depart-select, .major-select{
+      cursor:pointer;
+    }
+    .result-container{
+      display: inline-block;
+    }
+    body{
+      font-size: 14px;
+    }
+    body h4{
+      font-size: 16px;
+    }

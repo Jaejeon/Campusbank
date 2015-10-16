@@ -9,9 +9,9 @@ block content
         div.form-group
           label.col-xs-4(for='step1-1') 분류
           select.col-xs-4.fill-in-form#step1-1
-            option test1
-            option test2
-            option test3
+            option(value='생활비') 생활비
+            option(value='여행자금') 여행자금
+            option(value='기타') 기타
         div.form-group(style="height:80px")
           label.control-label.col-xs-4(for='step1-2') 상세내용
           textarea(style='height:80px').col-xs-8.fill-in-form#step1-2
@@ -68,9 +68,9 @@ block content
           div.form-group
             label.control-label.col-xs-2(for='step3-1') 총 대출희망 금액
             select.fill-in-form.col-xs-2#step3-1
-              option test1
-              option test2
-              option test3
+              option(value='100') 100
+              option(value='150') 150
+              option(value='200') 200
             span.red-text.col-xs-6 ※ 최소금액 50만원, 한도 1000만원
             div.col-xs-2
               button.right-float.right-space-30.question-button#register-question-step3
@@ -131,7 +131,7 @@ block content
                               small 최소대출희망금액
                             div.col-xs-6
                               div.row(style="height:5px")
-                              span &nbsp
+                                span &nbsp
                               div(style="width:60%; height:10px; background-color:#002b57")
                               div.row(style="height:5px")
                                 span &nbsp
@@ -174,9 +174,7 @@ block content
           div.form-group
             label.control-label.col-xs-2(for='step3-2') 최소 대출희망 금액
             select.fill-in-form.col-xs-2#step3-2
-              option test1
-              option test2
-              option test3
+              option(value='100') 100
             span.red-text.col-xs-6 ※ 총 대출희망 금액에 투자금액이 도달하지 못하여도 대출을 받고자하는 최소 금액 (선택사항)
 
       div.form-container
@@ -184,9 +182,12 @@ block content
         div.form-group
           label.control-label.col-xs-2(for='step4-1') 거치기간
           select.fill-in-form.col-xs-2#step4-1
-            option test1
-            option test2
-            option test3
+            option(value='0') 0 개월
+            option(value='6') 6 개월
+            option(value='12') 12 개월
+            option(value='18') 18 개월
+            option(value='24') 24 개월
+
           span.red-text.col-xs-6 ※ 이자만 상환하는 기간. 거치기간이 길수록 적용이자율이 상향될 수 있음
           button.right-float.right-space-30.question-button(data-toggle='modal', data-target='#modal-question-step4')
             i.fa.fa-question-circle.fa-2x.orange-text
@@ -284,16 +285,16 @@ block content
         div.form-group
           label.control-label.col-xs-2(for='step4-2') 상환기간
           select.fill-in-form.col-xs-2#step4-2
-            option test1
-            option test2
-            option test3
+            option(value='6') 6 개월
+            option(value='12') 12 개월
+            option(value='18') 18 개월
+            option(value='24') 24 개월
+            option(value='30') 30 개월
+
           span.red-text.col-xs-6 ※ 상환기간은 남은 금액을 원리금균등분할상환 하는 기간입니다.
         div.form-group
           label.control-label.col-xs-2(for='step4-3') 총대출기간
-          select.fill-in-form.col-xs-2#step4-3
-            option test1
-            option test2
-            option test3
+          input(type='text', readonly='true', value='6').fill-in-form.col-xs-2#step4-3
 
       div.form-container
         p.step-para Step5. 대출계좌번호
@@ -312,7 +313,35 @@ block content
 
       div.form-container
         p.step-para Step6. 신청내역확인
-
+        div#loan-card-container(sytle='width:0px;')
+        div.table-container
+          table.loan-info-table
+            tr
+              td 상환기간
+              td 월상환금액
+            tr
+              td 00년 00월 00일
+              td 10,000 원
+            tr
+              td 00년 00월 00일
+              td 10,000 원
+            tr
+              td 00년 00월 00일
+              td 50,000 원
+        div.table-container
+          table.loan-info-table
+            tr
+              td 대출종류
+              td 투자자 기다리기
+            tr
+              td 대출금액
+              td 5,000,000 원
+            tr
+              td 적용이자율
+              td 7.2%
+            tr
+              td 총지불이자금액
+              td 111,222 원
 
       div.form-container#agree-box
         p.step-para Step7. 약관동의
@@ -342,3 +371,8 @@ block content
   script(src='/plugin/bootstrap-validator/dist/validator.min.js')
   script(src='/javascripts/readText.js')
   script(src='/javascripts/registerInitFunc.js')
+  script.
+    $(function(){
+      var docsArr = !{JSON.stringify(docs)};
+      loanCard_inter('#loan-card-container', docsArr);
+    });

@@ -26,6 +26,7 @@ html
     script(src='/plugin/scrollbar/jquery.mCustomScrollbar.concat.min.js')
     script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
     script(src='/javascripts/address_finder.js')
+    script(src='/javascripts/loanCard.js')
 
   body
     // jQuery (necessary for Bootstrap's JavaScript plugins)
@@ -47,11 +48,11 @@ html
               a(href='')
                 img(src='images/001.png', width='100%', height='auto')
             li.nav-list
-              a.overEB6000.ajax-link#loan-intro
+              a.overEB6000.ajax-link.loan-link#loan-intro
                 img(src='/images/menu06.png')
                 span 서비스소개
             li.nav-list
-              a.overFFAE5A.ajax-link#credit
+              a.overFFAE5A.ajax-link.loan-link#credit
                 img(src='/images/menu03.png')
                 span 신용평가
               ul
@@ -71,7 +72,7 @@ html
                   a step7  평가결과
 
             li.nav-list
-              a.overEB6000.ajax-link#register
+              a.overEB6000.ajax-link.loan-link#register
                 img(src='/images/menu04.png')
                 span 대출신청
               ul
@@ -88,15 +89,15 @@ html
                 li.sub-li
                   a step6  확인 및 접수
             li.nav-list
-              a.overFFAE5A
+              a.overFFAE5A.loan-link
                 img(src='/images/menu01.png')
                 span 신청내역
             li.nav-list
-              a.overEB6000.ajax-link
+              a.overEB6000.ajax-link.loan-link
                 img(src='/images/menu05.png')
                 span 상환내역
             li.nav-list
-              a.overFFAE5A
+              a.overFFAE5A.loan-link
                 img(src='/images/menu02.png')
                 span 스쿠터리스
           div#sidebar-bottom
@@ -107,11 +108,11 @@ html
 
         div#page-content-wrapper
           header.container-fluid
-            div.row
+            div.row#header-bar
               //input(type='checkbox', data-switch-left='투자자 모드로 전환', data-switch-right='대출자 모드로 전환')#loan-lend-switch
-              a.rightAssign.col-lg-1.ajax-link#join
+              a.rightAssign.col-xs-1.ajax-link#join
                 span 회원가입
-              button.rightAssign.col-lg-1#login
+              button.rightAssign.col-xs-1#login
                 span 로그인
               div.modal.fade#modal-login
                 div.modal-dialog
@@ -120,7 +121,7 @@ html
                       button(type='button', data-dismiss='modal').close &times;
                       h4.modal-title 캠퍼스뱅크 로그인
                     div.modal-body
-                      form(role='form', action='/test/login', method='post')#modal-login-form
+                      form(role='form', action='/login', method='post')#modal-login-form
                         div.row
                           div.col-xs-2
                           div.col-xs-8
@@ -144,7 +145,7 @@ html
                           div.col-xs-2
                     div.modal-footer
                       button(type='button', data-dismiss='modal').btn.btn-default Close
-              ul.icon-list
+              ul.icon-list.col-xs-4
                 li
                   a#comment-icon
                     i.fa.fa-commenting-o.fa-lg

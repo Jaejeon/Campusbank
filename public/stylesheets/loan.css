@@ -162,14 +162,27 @@ label[for='step5-1'], label[for='step5-2']{
 }
 
 #modal-question-step3 small{
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 #modal-question-step4 small{
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 #modal-question-step4 .row-margin-top{
   margin-top:20px;
 }
 
+.loan-info-table{
+  margin-right:30px;
+  width: 200px;
+  height: 270px;
+  border: solid 1px #cccccc;
+}
+
+.loan-info-table tr{
+  border-bottom: solid 1px #cccccc;
+  text-align:center;
+}
