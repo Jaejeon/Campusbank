@@ -1,8 +1,7 @@
-var User = require('./models/user');
+var User = require('./../../models/user');
 
 module.exports = function(req,res){
   var result = User.find({email: req.user.email}).limit(1);
-
 
   result.exec(function(err,docs){
     if(err) return console.log(err);
@@ -11,7 +10,7 @@ module.exports = function(req,res){
       docs[i]._id = undefined;
     }
 
-    res.render(req.params.page, {docs:docs});
+    res.render('loan/register', {docs:docs});
   });
 
 };

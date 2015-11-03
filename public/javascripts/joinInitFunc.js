@@ -16,7 +16,7 @@ var addPostLink = function(){
           location.hash = this.id;
           var splitResult = location.hash.split('#');
           var transData = $('#join-form').serializeArray(); // .serializeArray -> form data to json
-          $.post(location.origin + location.pathname + '/' + splitResult[1],{
+          $.post(location.origin + location.pathname + 'users/' + splitResult[1],{
               formData : transData
           } ,function(data){
               $('#content-container').empty();

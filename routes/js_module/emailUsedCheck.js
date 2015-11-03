@@ -1,6 +1,6 @@
 var async = require('async');
-var User = require('./models/user');
-var RegUser = require('./models/reg-user');
+var User = require('./../../models/user');
+var RegUser = require('./../../models/reg-user');
 
 module.exports = function(req, res){
 

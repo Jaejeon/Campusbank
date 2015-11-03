@@ -10,14 +10,15 @@ body
       input(type='text', placeholder='예) 고려대학교', style='width:90%; margin-left:5%; font-size:20px')#school
       i.fa.fa-search(style='margin-left: 10px; color:#aaaaaa', onclick='searchSchool()')
     div.row#div-result-container
-      div#school-result-container.result-container(style='height:40%; width:180px; margin-left: 20px;')
-      div#depart-result-container.result-container(style='height:40%; width:180px; margin-left: 20px;')
-      div#major-result-container.result-container(style='height:40%; width:180px; margin-left: 20px;')
-      input(type='text', id='schoolSelected', name='school', readonly='true')
-      input(type='text', id='departSelected', name='depart', readonly='true')
-      input(type='text', id='majorSelected', name='major', readonly='true')
+      div#school-result-container.result-container(style='height:40%; width:170px; margin-left:20px;')
+      div#depart-result-container.result-container(style='height:40%; width:170px; margin-left:20px;')
+      div#major-result-container.result-container(style='height:40%; width:170px; margin-left:20px;')
+      div(style='margin-top:20px;')
+        input(type='text', id='schoolSelected', name='school', readonly='true')
+        input(type='text', id='departSelected', name='depart', readonly='true')
+        input(type='text', id='majorSelected', name='major', readonly='true')
 
-      input(type='button', value='완료', onclick='self.opener.document.getElementById("credit-school-search").value = document.getElementById("schoolSelected").value; self.opener.document.getElementById("credit-depart-search").value = document.getElementById("departSelected").value; self.opener.document.getElementById("credit-major-search").value = document.getElementById("majorSelected").value; self.close();')
+        input(type='button', value='완료', onclick='self.opener.document.getElementById("credit-school-search").value = document.getElementById("schoolSelected").value; self.opener.document.getElementById("credit-depart-search").value = document.getElementById("departSelected").value; self.opener.document.getElementById("credit-major-search").value = document.getElementById("majorSelected").value; self.close();')
 
   script.
     var searchSchool = function(){
@@ -28,7 +29,7 @@ body
       $('#major-result-container').mCustomScrollbar("destroy");
       $('#major-result-container').empty();
 
-      $.get('/search-school/school', {schoolQuery: $('#school').val()}, function(data){
+      $.get('/search/school', {schoolQuery: $('#school').val()}, function(data){
         $('#school-result-container').mCustomScrollbar("destroy");
         $('#school-result-container').empty();
         $.each(data.searchResult, function(index, arr){
@@ -44,7 +45,7 @@ body
           $('#schoolSelected').val($(this).text());
           $(this).parent().children('p').css('color','black');
           $(this).css('color', '#eb6000');
-          $.get('/search-school/depart', {departQuery: $(this).text()}, function(data){
+          $.get('/search/depart', {departQuery: $(this).text()}, function(data){
             $('#depart-result-container').mCustomScrollbar("destroy");
             $('#depart-result-container').empty();
 
@@ -64,7 +65,7 @@ body
               var query = [];
               query.push($('#schoolSelected').val());
               query.push($(this).text());
-              $.get('/search-school/major', {majorQuery: query}, function(data){
+              $.get('/search/major', {majorQuery: query}, function(data){
                 $('#major-result-container').mCustomScrollbar("destroy");
                 $('#major-result-container').empty();
 

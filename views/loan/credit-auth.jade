@@ -1,0 +1,32 @@
+﻿
+block content
+    script(src='/public/plugin/jquery-form/jquery.form.min.js')
+
+    form#credit-auth-form
+        div.row
+            h5 Step5. 서류인증
+            table
+                tr
+                    td 주민등록초본 (병역사항 포함)
+                    td
+                        input(type='file', id='file1', name='file1')
+                tr
+                    td 재학/휴학/졸업 증명서
+                    td
+                        input(type='file', id='file2', name='file2')
+                tr
+                    td 성적증명서
+                    td
+                        input(type='file', id='file3', name='file3')
+                tr
+                    td 어학성적/자격증 등 기타 서류
+                    td
+                        input(type='file', id='file4', name='file4')
+
+            input(type='button', value='UpLoad test Button')#file-test.ajax-post.loan-link
+
+        div.row
+            h5 Step6. 약관동의
+
+    script(src='/javascripts/credit-authInitFunc.js')
+

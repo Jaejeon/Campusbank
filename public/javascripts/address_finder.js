@@ -23,7 +23,6 @@ function find_address(){
                 fullRoadAddr += extraRoadAddr;
             }
 
-
             document.getElementById('sample4_postcode').value = data.zonecode;
             document.getElementById('sample4_roadAddress').value = fullRoadAddr;
             document.getElementById('sample4_jibunAddress').value = data.jibunAddress;

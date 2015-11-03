@@ -10,7 +10,6 @@ var pageInit = function(){
     //TODO
     //page init function
     addPostLink();
-    $('#regist-form').validator();
     readText('agree-text', '/texts/Survey.txt');
 
     //question mark popup event handler
@@ -27,4 +26,5 @@ var pageInit = function(){
     $('#step4-2').change(function(){
         $('#step4-3').attr('value', parseInt($('#step4-1').val()) + parseInt($('#step4-2').val()));
     });
+
 };

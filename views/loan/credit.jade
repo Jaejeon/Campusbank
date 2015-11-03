@@ -1,0 +1,118 @@
+﻿
+block content
+    form#credit-form
+        div.row
+            h5 Step1. 본인인증
+            </br></br></br></br></br></br>
+
+        div.row
+            h5 Step2. 기본정보
+            // 성별정보
+            div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+                div 성별&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select1', name='sex-type', value='male', checked='true')
+                    label(for='basic-info-select1') 남&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select2', name='sex-type', value='female', checked='true')
+                    label(for='basic-info-select2') 여
+            // 군필여부
+            div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+                div 군필여부&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select3', name='army_type', value='finished', checked='true')
+                    label(for='basic-info-select3') 군필&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select4', name='army_type', value='unfinished', checked='true')
+                    label(for='basic-info-select4') 미필
+            // 졸업여부
+            div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+                div 졸업여부&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select5', name='graduate_type', value='ungraduate', checked='true')
+                    label(for='basic-info-select5') 재학&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select6', name='graduate_type', value='resume', checked='true')
+                    label(for='basic-info-select6') 휴학&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select7', name='graduate_type', value='graduate', checked='true')
+                    label(for='basic-info-select7') 졸업
+            </br></br>
+
+            // 소득여부
+            div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+                div 소득여부&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select8', name='income_type', value='yes', checked='true')
+                    label(for='basic-info-select8') 있음&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select9', name='income_type', value='no', checked='true')
+                    label(for='basic-info-select9') 없음
+            // 소득형태
+            div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+                div 소득형태&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select10', name='work_type', value='regular', checked='true')
+                    label(for='basic-info-select10') 정규직&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='basic-info-select11', name='work_type', value='unregular', checked='true')
+                    label(for='basic-info-select11') 비정규직
+            // 소득금액
+            div.col-lg-4.col-md-4.col-xs-4.col-sm-4.basic-info-select
+                div 소득금액&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='text', id='inputIncome', name='Income', placeholder='예) 88', required='true',
+                    data-error='금액을 입력해주세요.').income_box.fill-in-form
+                    label(for='income') 만원
+
+            div.basic-info-select
+                table.col-xs-12
+                    tbody
+                        tr
+                            th(scope='row')
+                                p.red-text 주민등록상
+                                p 주소지
+                            td
+                                div.row
+                                    input(type='text', id='sample4_postcode', onclick='find_address()', placeholder='우편번호', readonly='true').col-xs-2
+                                    input(type='button', onclick='find_address()', value='주소 검색', style='font-size:14px;').col-xs-2.btn-default
+                                div.row
+                                    input(type='text', id='sample4_jibunAddress', onclick='find_address()', placeholder='지번주소', readonly='true').col-md-6.col-xs-8
+                                    input(type='text', id='detail-address', placeholder='나머지주소', style='height:24px;').col-md-5.col-xs-8.fill-in-form
+                                div.row
+                                    input(type='text', value='도로명주소', readonly='true')#button_roadAddress
+                                    input(type='text', id='sample4_roadAddress', readonly='true').col-xs-6
+                        tr
+
+
+        div.row
+            h5 Step3. 학력정보
+            table.col-xs-12
+                tr
+                    td
+                        div.col-sm-4
+                            span 소속학교
+                            input(type='text', placeholder='학교', readonly='true', id='credit-school-search')
+                        div.col-sm-4
+                            span 단과대학
+                            input(type='text', placeholder='단과대학', readonly='true', id='credit-depart-search')
+                        div.col-sm-4
+                            span 소속학과
+                            input(type='text', placeholder='학과', readonly='true', id='credit-major-search')
+                        div.col-sm-4
+                            input(type='text', value='학교 검색', readonly='true')#button_schoolSearch
+                    td
+                    td
+                tr
+                tr
+                tr
+                tr
+
+
+        div.row
+            h5 Step4. 기대출정보
+            div.col-lg-6.col-md-6.col-xs-6.col-sm-6.basic-info-select
+                div 기존 대출여부&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='lended', name='select_lended', value='lended_before', checked='true')
+                    label(for='lended') &nbsp&nbsp있음&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='radio', id='non_lended', name='select_lended', value='non_lended_before', checked='true')
+                    label(for='lended') &nbsp&nbsp없음&nbsp&nbsp&nbsp
+            div.col-lg-6.col-md-6.col-xs-6.col-sm-6.basic-info-select
+                div 총 대출잔액 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    input(type='text', id='amountOflending', name='amout_lending', placeholder='예) 1000000', required='true',
+                    data-error='금액을 입력해주세요.').fill-in-form
+                    label(for='amountOflending') &nbsp&nbsp원
+
+        div.container-fluid
+            input(type='button', value='다음 단계로')#credit-auth.col-xs-4.ajax-post.credit_eval.loan-link
+
+    script(src='/javascripts/creditInitFunc.js')
+

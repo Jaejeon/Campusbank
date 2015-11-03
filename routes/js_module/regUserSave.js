@@ -1,4 +1,4 @@
-var RegUser = require('./models/reg-user');
+var RegUser = require('./../../models/reg-user');
 
 module.exports = function(req, res){
 

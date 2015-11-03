@@ -1,7 +1,7 @@
 var async = require('async');
-var User = require('./models/user');
-var RegUser = require('./models/reg-user');
-var UserAuthnum = require('./models/user-authnum');
+var User = require('./../../models/user');
+var RegUser = require('./../../models/reg-user');
+var UserAuthnum = require('./../../models/user-authnum');
 
 module.exports = function(req,res){
     async.apply(UserAuthnum.findOne, req, res);
@@ -24,7 +24,7 @@ module.exports = function(req,res){
                 if(err) return callback(new Error('failed connecting to database: '+err.message), 'errCode4');
 
                 //authnum exists in the database, but regUser not exists (already authenticated)
-                if(!user) return callback(new Error('You may already be authenticated'), 'errCode5');
+                if(!user) return callback(new Error('already be authenticated'), 'errCode5');
                 callback(null, user);
             });
         },

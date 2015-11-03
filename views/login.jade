@@ -2,6 +2,16 @@
 block content
   h4 캠퍼스뱅크 로그인
 
-  form(role='form', action='/login', method='post')#login-form
+  form(role='form', method='post')#login-form
+    div.row
+      span.col-xs-2 이메일
+      input(type='text', placeholder='예)campusbank@redrocket.co.kr', name='email').col-xs-8.fill-in-form
+    div.row
+      br
+      span.col-xs-2 비밀번호
+      input(type='text', placeholder='예)password1234', name='password').col-xs-8.fill-in-form
+    div.row
+      br
+      button.col-xs-4.col-xs-offset-4.btn.btn-default#login-submit 로그인
 
   script(src='/javascripts/loginInitFunc.js')

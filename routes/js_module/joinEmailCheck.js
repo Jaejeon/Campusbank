@@ -1,4 +1,4 @@
-var UserAuthnum = require('./models/user-authnum');
+var UserAuthnum = require('./../../models/user-authnum');
 process.env.NODE_ENV = 'dev';
 var config = require('config');
 var randomstring = require('randomstring');

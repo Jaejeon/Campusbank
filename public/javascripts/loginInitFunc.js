@@ -3,10 +3,22 @@
 var addPostLink = function(){
     //TODO
     //post link handler append
+    $('#login-submit').click(function(e){
+        e.preventDefault();
+        var transData = $('#login-form').serializeArray();
+        $.post(location.origin + location.pathname + 'users/login', {
+            formData: transData
+        }, function(data){
+            $('#content-container').empty();
+            $('#content-container').append(data);
+
+            addGetLink();
+            pageInit();
+        });
+    });
 };
 
 var pageInit = function(){
-
     //TODO
     //page init function
     addPostLink();

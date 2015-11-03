@@ -1,5 +1,5 @@
 
-var UserAuthNum = require('./models/user-authnum');
+var UserAuthNum = require('./../../models/user-authnum');
 var randomstring = require('randomstring');
 
 module.exports = function(req, res, newUser){

@@ -11,14 +11,27 @@ var addGetLink = function(){
         if($(this).hasClass('loan-link')) location.hash += '#loan';
         else if($(this).hasClass('lend-link')) location.hash += '#lend';
         var splitResult = location.hash.split('#');
-        $.get(location.origin + '/' + splitResult[2] + '/' + splitResult[1], function(data){
-            $('#content-container').empty();
-            $('#content-container').append(data);
+        if(splitResult[2]){
+            $.get(location.origin + '/' + splitResult[2] + '/' + splitResult[1], function(data){
+                $('#content-container').empty();
+                $('#content-container').append(data);
 
-            //add link to appended contents
-            addGetLink();
-            pageInit();
-        });
+                //add link to appended contents
+                addGetLink();
+                pageInit();
+            });
+        }
+        else{
+            $.get(location.origin + '/' + splitResult[1], function(data){
+                $('#content-container').empty();
+                $('#content-container').append(data);
+
+                //add link to appended contents
+                addGetLink();
+                pageInit();
+            });
+        }
+
     });
 
     //list open&close event
@@ -56,7 +69,7 @@ var addLoginPost = function(){
         e.preventDefault();
 
         var transData = $('#modal-login-form').serializeArray();
-        $.post(location.origin + '/login',{
+        $.post(location.origin + '/users/login',{
                 formData : transData
             }, function(data, status, jqXHR){
                 $('#content-container').empty();

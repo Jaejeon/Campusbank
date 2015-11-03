@@ -1,4 +1,4 @@
-var Univs = require('./models/univ');
+var Univs = require('./../../models/univ');
 
 module.exports = function(req,res){
 
