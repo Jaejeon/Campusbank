@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04f98db0-d604-4b62-890e-f9d887e53efe" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/auth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/schema/schema_loan.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/loan/credit-auth.jade" afterPath="$PROJECT_DIR$/views/loan/credit-auth.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/credit-authInitFunc.js" afterPath="$PROJECT_DIR$/public/javascripts/credit-authInitFunc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/loan/credit.jade" afterPath="$PROJECT_DIR$/views/loan/credit.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/creditInitFunc.js" afterPath="$PROJECT_DIR$/public/javascripts/creditInitFunc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/emailAuthContent.jade" afterPath="$PROJECT_DIR$/views/emailAuthContent.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/loan-card.js" afterPath="$PROJECT_DIR$/models/loan-card.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/template.css" afterPath="$PROJECT_DIR$/public/stylesheets/template.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user.js" afterPath="$PROJECT_DIR$/models/user.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Campus_bank.iws" />
@@ -90,8 +76,8 @@
       <file leaf-file-name="template.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/template.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67065316">
-              <caret line="145" column="36" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.27322906">
+              <caret line="129" column="41" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -970,8 +956,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/template.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67065316">
-          <caret line="145" column="36" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.27322906">
+          <caret line="129" column="41" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
           <folding />
         </state>
       </provider>
