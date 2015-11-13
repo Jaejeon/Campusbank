@@ -705,3 +705,17 @@ li.loan-month-line {
 .table-container{
   display:inline-block;
 }
+
+.short-input{
+  width:140px;
+  margin-left: 10px;
+}
+
+.sub-title{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.display-none{
+  display:none;
+}

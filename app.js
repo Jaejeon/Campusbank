@@ -20,7 +20,9 @@ var app = express();
 
 var users = require('./routes/users.js')(app, passport);
 var router_search = require('./routes/search.js');
-var router = require('./routes/index.js')(app);
+var router = require('./routes/index.js')();
+//var api_routes = require('./routes/api.js');
+//var auth_routes = require('./routes/auth.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +44,10 @@ app.use(passport.session());
 initPassport(passport); // passport.js initializing
 
 //-------------------- Routing START -----------------------------
+//app.use('/auth', auth_routes);
+//app.use('/api', api_routes);
+//app.use('/', routes);
+
 app.use('/users', users);
 app.use('/search', router_search);
 app.use('/', router);

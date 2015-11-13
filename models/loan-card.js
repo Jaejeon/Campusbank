@@ -12,7 +12,8 @@ var LoanCardSchema = mongoose.Schema({
   purpose: String,
   credit: String,
   school: String,
-  major: String
+  major: String,
+  complete: Boolean
 });
 
 LoanCardSchema.methods.dbSuccess = function(){

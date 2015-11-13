@@ -14,7 +14,8 @@ var addPostLink = function(){
 
             var splitResult = location.hash.split('#');
             var transData = $('#credit-form').serializeArray(); // .serializeArray -> form data to json
-            $.post(location.origin + '/' + splitResult[2] + '/' + splitResult[1],{
+            console.log(transData);
+            $.post(location.origin + '/form/' + splitResult[2] + '/' + splitResult[1],{
                 formData : transData
             } ,function(data){
                 $('#content-container').empty();
@@ -39,5 +40,26 @@ var pageInit = function(){
     $('#credit-major-search').click(function(){ find_school(); });
     $('#button_schoolSearch').click(function(){ find_school(); });
 
+    $('#intern-radio-true').click(function(){ $('input[name="intern1"], input[name="intern2"], input[name="intern3"]').prop('disabled', false)});
+    $('#intern-radio-false').click(function(){ $('input[name="intern1"], input[name="intern2"], input[name="intern3"]').prop('disabled', true)});
+    $('label[for="intern-radio-true"]').click(function(){ $('input[name="intern1"], input[name="intern2"], input[name="intern3"]').prop('disabled', false)});
+    $('label[for="intern-radio-false"]').click(function(){ $('input[name="intern1"], input[name="intern2"], input[name="intern3"]').prop('disabled', true)});
+
+    $('.foreignLang-form-row:first').removeClass('display-none foreignLang-form-row');
+    $('.plus-button-foreignLang').click(function(){
+       $('.foreignLang-form-row:first').removeClass('display-none foreignLang-form-row');
+    });
+
+    $('.license-form-row:first').removeClass('display-none license-form-row');
+    $('.plus-button-license').click(function(){
+        $('.license-form-row:first').removeClass('display-none license-form-row');
+    });
+
+    $('.loan-form-row:first').removeClass('display-none loan-form-row');
+    $('.plus-button-loan').click(function(){
+        $('.loan-form-row:first').removeClass('display-none loan-form-row');
+    });
+
+    $('')
     addPostLink();
 };

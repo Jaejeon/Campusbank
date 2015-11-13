@@ -111,7 +111,7 @@
                | 					사이트 이용을 위해 아래 버튼을 클릭하여 사용자 이메일 인증을 마치시기 바랍니다.
                br
             .button-wrapper
-               form(action='http://localhost:3000/users/emailAuth', method='post')
+               form(action='http://localhost:3000/auth/email', method='post')
                   input(type='hidden', name='authnum', value='#{userAuthNum}')
                   input.button.accept(type='submit', value='인증하기')
                   input.button.reject(type='submit', value='취소하기')

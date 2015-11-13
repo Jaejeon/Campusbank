@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var router_form = require('./form.js');
 var registerLoanCardProc = require('./js_module/registerLoanCardProc.js');
-var path = require('path');
 
-module.exports = function(app){
+module.exports = function(){
 
+  //authentication
   router.use('/:type/:page', function(req,res,next){
     if(!req.user){
       res.render('login');
@@ -13,6 +14,8 @@ module.exports = function(app){
       next();
     }
   });
+
+  router.use('/form', router_form);
 
   router.use('/:type/:page', function(req,res,next){
     var file_rendered = req.params.type + '/' + req.params.page;

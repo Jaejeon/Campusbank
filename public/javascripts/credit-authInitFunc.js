@@ -5,7 +5,7 @@ var addPostLink = function(){
     $('.ajax-post').click(function(e){
         e.preventDefault();
 
-        var isError;
+        var isError = false;
 
         if(!isError){
             location.hash = this.id;
