@@ -1,0 +1,404 @@
+﻿@color-1st: #EB6000;
+@color-2nd: #FF8500;
+@color-3rd: #FAB561;
+@color-bg1: #F3F1EA;
+
+.clearfix() {
+    &:after, &:before {
+        display: table;
+        content: ' ';
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.clearfix {
+    .clearfix();
+}
+
+body {
+    background-color: @color-bg1;
+}
+
+.container {
+    padding: 0;
+    width: 990px;
+    margin: 0 auto;
+}
+
+.top-message {
+    margin: 10px 0 15px 0;
+
+    text-align: center;
+    color: #808080;
+}
+
+.sidebar {
+    float: left;
+    margin-right: 10px;
+    width: 180px;
+
+    background-color: white;
+
+    .logo {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.sidebar-menu {
+    padding: 0;
+
+    list-style: none;
+
+    li:nth-child(even) a {
+        border-left-color: @color-3rd;
+    }
+
+    li a {
+        .clearfix();
+
+        display: block;
+
+        padding-left: 20px;
+        height: 58px;
+
+        color: inherit;
+        text-decoration: none;
+
+        border-left-width: 0;
+        border-left-style: solid;
+        border-left-color: @color-1st;
+
+        &:hover {
+            padding-left: 15px;
+            border-left-width: 5px;
+
+            transition: all ease 0.1s;
+        }
+
+
+        .menu-icon {
+            display: block;
+            float: left;
+
+            margin-top: 7px;
+            margin-right: 20px;
+        }
+
+        .menu-label {
+            float: left;
+
+            margin-top: 7px;
+            line-height: 40px;
+        }
+    }
+}
+
+.main {
+    float: left;
+    width: 800px;
+}
+
+.topbar {
+    .clearfix();
+    
+    margin-bottom: 10px;
+
+    height: 40px;
+
+    background-color: white;
+
+    .dummybox {
+        float: left;
+        
+        width: 40px;
+        height: 40px;
+
+        &.dummybox-1st { background-color: @color-1st; }
+        &.dummybox-2nd { background-color: @color-2nd; }
+        &.dummybox-3rd { background-color: @color-3rd; }
+    }
+
+    .topbar-menu {
+        .clearfix();
+
+        float: right;
+        padding: 0 10px;
+        list-style: none;
+
+        li {
+            float: left;
+            a {
+                display: block;
+                padding: 10px;
+
+                color: inherit;
+                font-size: 13px;
+                line-height: 20px;
+            }
+        }
+    }
+}
+
+.content {
+    background-color: white;
+}
+
+.content-service-intro {
+    padding: 20px 30px;
+    text-align: center;
+
+    .row {
+        padding: 20px 0;
+    }
+
+    .col-sm-9 {
+        padding: 20px 0;
+    }
+
+    h2 {
+        margin: 0 0 15px 0;
+
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+}
+
+.content-headered-item {
+    
+    padding: 20px 30px;
+
+    .header {
+        h1 {
+            float: left;
+            margin: 8px 0 15px 0;
+
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        input {
+            float: right;
+            width: 180px;
+
+            font-size: 12px;
+        }
+
+        hr {
+            clear: both;
+        }
+    }
+}
+
+.content-product-list {
+    .filters {
+        label {
+            display: block;
+
+            line-height: 27px;
+            text-align: center;
+        }
+        select {
+            padding: 0;
+
+            height: 25px;
+
+            font-size: 12px;
+        }
+    }
+
+    .product-list {
+        margin-top: 30px;
+    }
+}
+
+.content-cart {
+    .invest-form {
+        max-width: @content-width;
+
+        .input-field-amount {
+            margin-top: 10px;
+            padding: 5px 8px;
+        }
+
+        .btn-remove-item {
+            display: block;
+            margin-top: 10px;
+            padding: 5px;
+
+            width: 100%;
+
+            color: @color-2nd;
+            border: 1px solid gray;
+            background: none;
+        }
+    }
+
+    .area-submit {
+        line-height: 32px;
+
+        button {
+            line-height: 1.6;
+        }
+    }
+
+    .btn-submit {
+        display: block;
+        padding: 5px;
+
+        width: 100%;
+
+        color: @color-2nd;
+        border: 1px solid gray;
+        background: none;
+    }
+}
+
+.content-request-list {
+    .request-list {
+        padding: 0 30px;
+    }
+
+    .product-item .item-content {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .details {
+        padding: 5px;
+        border: 1px solid #cecece;
+
+        line-height: 35px;
+
+        .col-xs-6 {
+            padding-right: 0;
+        }
+    }
+
+    .btn-change-account,
+    .btn-profit-list {
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+        border: 1px solid #1a3f60;
+        color: #1a3f60;
+        background: none;
+    }
+
+    .btn-profit-list {
+        color: @color-2nd;
+        border-color: @color-2nd;
+    }
+}
+
+@content-width: 180px;
+
+.product-item {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 15px;
+    .item-content {
+        display: block;
+        color: inherit;
+
+        position: relative;
+
+        margin: 0 auto;
+
+        width: @content-width;
+        height: 270px;
+
+        overflow: hidden;
+
+        border-radius: 8px;
+        background-color: #d7dfe6;
+
+        .desc {
+            padding: 3px;
+
+            font-size: 13px;
+            text-align: center;
+
+            .row {
+                padding: 8px 10px;
+            }
+
+            hr {
+                margin: 0;
+                border-color: black;
+            }
+
+            .field-price {
+                text-align: left;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .field-month {
+                text-align: right;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .field-interest {
+                margin: 20px 0;
+
+                font-size: 36px;
+                font-weight: 600;
+            }
+
+            .field-remaining-time,
+            .field-purpose {
+                margin: 9px 0;
+            }
+
+            .field-school,
+            .field-major {
+                line-height: 1.6;
+            }
+        }
+
+        .v-progress-bar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 15px;
+
+            font-size: 10px;
+
+            color: #16334d;
+            background-color: #9eb3c6;
+
+            .original-content {
+                width: @content-width;
+
+                text-align: center;
+            }
+
+            .mask {
+                position: absolute;
+                top: 0;
+
+                width: 50%;
+
+                overflow: hidden;
+
+                color: #9eb3c6;
+                background-color: #16334d;
+
+                .masked-content {
+                    width: @content-width;
+
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
