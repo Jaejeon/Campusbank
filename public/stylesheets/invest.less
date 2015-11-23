@@ -219,6 +219,58 @@ body {
     }
 }
 
+.content-product-detail {
+    padding: 30px 30px;
+    
+    .credit-detail {
+        padding: 15px 15px;
+        border: 1px solid gray;
+        
+        .row {
+            line-height: 2.3;
+        }
+        
+        .credit-grade {
+            font-size: 90px;
+            line-height: 1;
+        }
+    }
+    
+    .invest-options {
+        margin-top: 15px;
+        line-height: 34px;
+        
+        .btn {
+            margin-top: 15px;
+            border: 1px solid gray;
+            border-radius: 0;
+            background: none;
+            font-size: 0.9em;
+        }
+        .btn-goto-cart {
+            color: @color-2nd;
+        }
+    }
+    
+    .product-abstract,
+    .product-purpose,
+    .product-basicinfo,
+    .product-preloan,
+    .product-academic {
+        margin-bottom: 50px;
+        
+        h1 {
+            margin: 20px 0 0 20px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        hr {
+            margin-top: 15px;
+        }
+    }
+}
+
 .content-cart {
     .invest-form {
         max-width: @content-width;
@@ -298,6 +350,19 @@ body {
     }
 }
 
+.content-profit {
+    .invest-desc {
+        .row {
+            margin-left: -5px;
+            margin-right: -5px;
+            
+            .col-xs-6, .col-sm-3 {
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
 @content-width: 180px;
 
 .product-item {
@@ -319,6 +384,8 @@ body {
 
         border-radius: 8px;
         background-color: #d7dfe6;
+        
+        text-decoration: none;
 
         .desc {
             padding: 3px;
