@@ -1,0 +1,132 @@
+﻿<div class="content-headered-item content-product-list">
+    <div class="header">
+        <h1>상품 목록</h1>
+        <input class="form-control" type="text" value="" placeholder="검색" />
+        <hr />
+    </div>
+    <div class="filters row" style="margin: 0 -5px">
+        <div class="col-md-7" style="padding: 0">
+            <div class="row" style="margin: 0 -5px">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <label for="filter-orderby-amount">대출 금액</label>
+                        </div>
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <select id="filter-orderby-amount" class="form-control">
+                                <option>높은 순</option>
+                                <option>낮은 순</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <label for="filter-orderby-period">상환 기간</label>
+                        </div>
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <select id="filter-orderby-period" class="form-control">
+                                <option>높은 순</option>
+                                <option>낮은 순</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <label for="filter-orderby-interest">이자율</label>
+                        </div>
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <select id="filter-orderby-interest" class="form-control">
+                                <option>높은 순</option>
+                                <option>낮은 순</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <label for="filter-orderby-grade">학점</label>
+                        </div>
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <select id="filter-orderby-grade" class="form-control">
+                                <option>전체</option>
+                                <option>A 이상</option>
+                                <option>B 이상</option>
+                                <option>C 이상</option>
+                                <option>D 이상</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <label for="filter-orderby-credit">신용평가</label>
+                        </div>
+                        <div class="col-xs-6" style="padding: 0 5px 0 0">
+                            <select id="filter-orderby-credit" class="form-control">
+                                <option>전체</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list row">
+        <div class="product-item list-item col-md-3 col-sm-6" ng-repeat="item in productList.products">
+            <a ng-href="/invest/products/{{item.id}}" class="item-content">
+                <div class="desc">
+                    <div class="row">
+                        <div class="col-xs-6 field-price">{{item.price}}만원</div>
+                        <div class="col-xs-6 field-month">{{item.month}}개월</div>
+                    </div>
+                    <hr />
+                    <div class="field-interest">
+                        {{item.interest}}%
+                    </div>
+                    <hr />
+                    <div class="field-remaining-time">
+                        남은 시간: {{item.remainingTime}}
+                    </div>
+                    <hr />
+                    <div class="field-purpose">
+                        {{item.purpose}}
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img src="//placehold.it/40x60" alt="" style="width: 40px; height: 40px;" />
+                        </div>
+                        <div class="col-xs-8">
+                            <div class="field-school">
+                                {{item.school}}
+                            </div>
+                            <div class="field-major">
+                                {{item.major}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="v-progress-bar">
+                    <div class="original-content">
+                        {{item.percentage}}%
+                    </div>
+                    <div class="mask" ng-style="{width: item.percentage + '%'}">
+                        <div class="masked-content">
+                            {{item.percentage}}%
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

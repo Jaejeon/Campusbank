@@ -1,0 +1,56 @@
+doctype html
+html(ng-app='campusBankApp')
+  head
+    meta(name='viewport', content='width=device-width')
+    title 투자하기 - 캠퍼스 뱅크
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/invest.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js')
+    script(src='/javascripts/app/campusBankApp.js')
+    script(src='/javascripts/app/investProductListController.js')
+    script(src='/javascripts/app/investProductDetailController.js')
+        
+    base(href='/invest')
+  body
+    .container(style='width: 990px; margin: 0 auto;')
+      .top-message
+        | (주)퓨처파이낸스대부    대부업
+        | 2015-서울동대문-0702  대부중개업  2015-서울동대문-0703
+      .clearfix
+        .sidebar
+          a.logo(href='/')
+            img(src='//placehold.it/180x141', alt='')
+          ul.sidebar-menu
+            li
+              a(href='/invest')
+                img.menu-icon(src='//placehold.it/40x40', alt='아이콘')
+                .menu-label
+                  | 서비스 소개
+            li
+              a(href='/invest/products')
+                img.menu-icon(src='//placehold.it/40x40', alt='아이콘')
+                .menu-label
+                  | 상품 목록
+            li
+              a(href='/invest/requests')
+                img.menu-icon(src='//placehold.it/40x40', alt='아이콘')
+                .menu-label
+                  | 신청 내역
+            li
+              a(href='/invest/profits')
+                img.menu-icon(src='//placehold.it/40x40', alt='아이콘')
+                .menu-label
+                  | 수익 내역
+        .main
+          .topbar
+            .dummybox.dummybox-1st
+            .dummybox.dummybox-2nd
+            .dummybox.dummybox-3rd
+            ul.topbar-menu
+              li
+                a(href='/login') 로그인
+              li
+                a(href='/join') 회원가입
+          .content
+            div(ng-view='')
