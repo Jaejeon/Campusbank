@@ -45,8 +45,8 @@ module.exports = function(req,res){
                 userAuth.save(function(err,userauth){
                     if(err) callback(err);
                     userAuth.dbSuccess();
-                    if(userAuth.usertype == 'loan') return res.redirect('/test');
-                    else return res.redirect('/test');
+                    if(userAuth.usertype == 'loan') return res.redirect('/');
+                    else return res.redirect('/');
                 });
             }
         }

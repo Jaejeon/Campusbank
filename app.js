@@ -24,7 +24,7 @@ var users = require('./routes/users.js')(app, passport);
 var router_search = require('./routes/search.js');
 var routes = require('./routes/index.js')();
 var api_routes = require('./routes/api.js');
-var auth_routes = require('./routes/auth.js')(passport);
+var auth_routes = require('./routes/auth.js')(app, passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -43,7 +43,8 @@ app.use(expressSession({ //session stored in DB
   store: new MongoStore({ mongooseConnection: mongoose.connection }),
   secret: config.get('SECRET_KEY'),
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cookie: { maxAge : 24*60*1000 }
 }));
 
 app.use(flash());
@@ -52,9 +53,13 @@ app.use(passport.session());
 
 initPassport(passport); // passport.js initializing
 
-
-
 //-------------------- Routing START -----------------------------
+app.use(function(req,res,next){
+  if(req.user) console.log(req.cookies);
+  res.cookie('connect-sid');
+  next();
+});
+
 app.use('/auth', auth_routes);
 app.use('/api', api_routes);
 

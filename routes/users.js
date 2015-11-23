@@ -3,7 +3,7 @@ var router = express.Router();
 var parseFormdata = require('./js_module/parseFormdata.js');
 var regUserSave = require('./js_module/regUserSave.js');
 var userAuthNumSave = require('./js_module/userAuthNumSave.js');
-var joinEmailCheck = require('./js_module/joinEmailCheck.js');
+var sendAuthEmail = require('./js_module/sendAuthEmail.js');
 var emailCheckProcess = require('./js_module/emailCheckProcess.js');
 
 module.exports = function(app, passport){
@@ -24,7 +24,8 @@ module.exports = function(app, passport){
     }));
 
   router.get('/login/:page', function(req,res,next){
-    res.render(req.params.page, {username: req.user.username});
+    res.send('Hello World!');
+    //res.render(req.params.page, {username: req.user.username});
   });
 //-------------------LOGIN routing END-------------------------
 
@@ -36,7 +37,7 @@ module.exports = function(app, passport){
     var userAuthNum = userAuthNumSave(req,res,newUser);
 
     app.render('emailAuthContent', {userAuthNum: userAuthNum.authnum}, function(err,html){
-      joinEmailCheck(req,res,newUser,html);
+      sendAuthEmail(req,res,newUser,html);
     });
 
     res.render('joinSubmit', {userEmail: newUser.email});
