@@ -1,4 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-module.exports = rourter;
+module.exports = function(passport){
+
+  //-----------------LOGIN routing START--------------------
+
+  return router;
+};

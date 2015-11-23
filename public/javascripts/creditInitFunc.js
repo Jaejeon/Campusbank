@@ -60,6 +60,5 @@ var pageInit = function(){
         $('.loan-form-row:first').removeClass('display-none loan-form-row');
     });
 
-    $('')
     addPostLink();
 };

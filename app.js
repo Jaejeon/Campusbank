@@ -16,14 +16,15 @@ var initPassport = require('./passport/init.js');
 process.env.NODE_ENV = 'dev';
 var config = require('config');
 var fs = require('fs');
+var MongoStore = require('connect-mongo')(expressSession);
 
 var app = express();
 
 var users = require('./routes/users.js')(app, passport);
 var router_search = require('./routes/search.js');
-var router = require('./routes/index.js')();
-//var api_routes = require('./routes/api.js');
-//var auth_routes = require('./routes/auth.js');
+var routes = require('./routes/index.js')();
+var api_routes = require('./routes/api.js');
+var auth_routes = require('./routes/auth.js')(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -38,23 +39,28 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(expressSession({secret: config.get('SECRET_KEY'),
-                        resave: false,
-                        saveUninitialized: false}));
+app.use(expressSession({ //session stored in DB
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  secret: config.get('SECRET_KEY'),
+  resave: false,
+  saveUninitialized: false
+}));
+
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
 initPassport(passport); // passport.js initializing
 
+
+
 //-------------------- Routing START -----------------------------
-//app.use('/auth', auth_routes);
-//app.use('/api', api_routes);
-//app.use('/', routes);
+app.use('/auth', auth_routes);
+app.use('/api', api_routes);
 
 app.use('/users', users);
 app.use('/search', router_search);
-app.use('/', router);
+app.use('/', routes);
 //-------------------- Routing END -------------------------------
 
 // catch 404 and forward to error handler
