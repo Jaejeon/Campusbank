@@ -5,7 +5,7 @@ var registerLoanCardProc = require('./js_module/registerLoanCardProc.js');
 
 module.exports = function(){
 
-  router.use('/invest/:page', function(req, res, next) {
+  router.use('/invest/:page*', function(req, res, next) {
     res.redirect('/invest#!/invest/' + req.params.page);
   });
   

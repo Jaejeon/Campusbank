@@ -9,6 +9,8 @@ html(ng-app='campusBankApp')
     script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js')
     script(src='/javascripts/app/campusBankApp.js')
     script(src='/javascripts/app/investProductListController.js')
+    script(src='/javascripts/app/investProductDetailController.js')
+        
     base(href='/invest')
   body
     .container(style='width: 990px; margin: 0 auto;')
@@ -36,7 +38,7 @@ html(ng-app='campusBankApp')
                 .menu-label
                   | 신청 내역
             li
-              a(href='#')
+              a(href='/invest/profits')
                 img.menu-icon(src='//placehold.it/40x40', alt='아이콘')
                 .menu-label
                   | 수익 내역

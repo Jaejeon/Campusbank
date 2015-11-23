@@ -26,6 +26,10 @@
                 templateUrl: '/templates/invest/request-list.html',
                 controller: 'investRequestListController',
                 controllerAs: 'requestList'
+            }).when('/invest/profits', {
+                templateUrl: '/templates/invest/profits.html',
+                controller: 'investProfitListController',
+                controllerAs: 'profitList'
             });
     }
 
