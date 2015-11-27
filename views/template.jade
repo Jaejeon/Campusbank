@@ -27,8 +27,9 @@ html
     script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
     script(src='/javascripts/address_finder.js')
     script(src='/javascripts/loanCard.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js')
 
-  body
+  body(ng-app="campusBankApp")
     // jQuery (necessary for Bootstrap's JavaScript plugins)
 
     // Include all compiled plugins (below), or include individual files as needed
@@ -113,21 +114,21 @@ html
               span 회원가입
             button.rightAssign.col-xs-1#login
               span 로그인
-            div.modal.fade#modal-login
+            div.modal.fade#modal-login(ng-controller="loginController")
               div.modal-dialog
                 div.modal-content
                   div.modal-header
                     button(type='button', data-dismiss='modal').close &times
                     h4.modal-title 캠퍼스뱅크 로그인
                   div.modal-body
-                    form(role='form', action='/login', method='post')#modal-login-form
+                    form(role='form', ng-submit='login()')#modal-login-form
                       div.row
                         div.col-xs-2
                         div.col-xs-8
                           div.icon-div
                             i.fa.fa-user.fa-lg
                           div.input-div
-                            input(type='text', placeholder='Email', name='email')
+                            input(type='text', placeholder='Email', name='email', ng-model="email")
                         div.col-xs-2
                       div.row
                         div.col-xs-2
@@ -135,7 +136,7 @@ html
                           div.icon-div
                             i.fa.fa-lock.fa-lg
                           div.input-div
-                            input(type='text', placeholder='Password', name='password')
+                            input(type='text', placeholder='Password', name='password', ng-model="password")
                         div.col-xs-2
                       div.row
                         div.col-xs-2
@@ -156,6 +157,10 @@ html
 
         div#content-container.container-fluid
           block content
+
+    script(src="javascripts/app/campusBankApp.js")
+    script(src="javascripts/app/loginController.js")
+    script(src="javascripts/services/login.js")
 
 <!-- /#page-content-wrapper -->
 
