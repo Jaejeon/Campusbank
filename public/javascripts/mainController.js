@@ -69,6 +69,10 @@ var newPopup = function(url){
       ' menubar=no, location=no, directories=no, status=yes');
 };
 
+var closeModal = function(){
+  $("#modal-login").modal("hide");
+};
+
 $(function(){
     //sidebar custom scroll
     $('#sidebar-wrapper').mCustomScrollbar({

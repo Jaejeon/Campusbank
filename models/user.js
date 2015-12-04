@@ -12,7 +12,7 @@ var UserSchema = mongoose.Schema({
   birth: Date,
   usertype: String,
   username: String,
-  loan:{
+  credit:{
     sex: String, //male, female
     military: Boolean, //military service true, false
     status: String, // graduate, inSchool, LOA (leave of absence)
@@ -44,6 +44,9 @@ var UserSchema = mongoose.Schema({
       amount: Number, // 1000, 1500, ...
       loan: [loanSchema]
     }
+  },
+  loan:{
+
   },
   lend:{
 

@@ -10,7 +10,7 @@ module.exports = function(app, passport){
   //-----------------LOGIN routing START--------------------
   router.post('/login', passport.authenticate('local',
     {
-      successRedirect: '/',
+      successRedirect: '/auth/success',
       failureRedirect: '/login',
       failureFlash: true
     }));
@@ -26,7 +26,13 @@ module.exports = function(app, passport){
       sendAuthEmail(req,res,newUser,html);
     });
 
-    res.render('joinSubmit', {userEmail : newUser.email});
+    res.json({
+      success: true,
+      message: null,
+      data: {
+        email: newUser.email
+      }
+    });
   });
   //-----------------JOIN routing END-----------------------
 
@@ -35,6 +41,23 @@ module.exports = function(app, passport){
     emailCheckProcess(req,res);
   });
   //-----------------EMAIL AUTHENTICATION routing END-------
+
+
+  router.get('/success', function(req,res,next){
+    if(!req.user) res.redirect('/');
+    else {
+      res.json({
+        success: true,
+        message: null,
+        data: {
+          id: req.user._id,
+          email: req.user.email,
+          username: req.user.username,
+          usertype: req.user.usertype
+        }
+      });
+    }
+  });
 
   return router;
 };

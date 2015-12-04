@@ -20,7 +20,6 @@ var MongoStore = require('connect-mongo')(expressSession);
 
 var app = express();
 
-var users = require('./routes/users.js')(app, passport);
 var router_search = require('./routes/search.js');
 var routes = require('./routes/index.js')();
 var api_routes = require('./routes/api.js');
@@ -55,15 +54,13 @@ initPassport(passport); // passport.js initializing
 
 //-------------------- Routing START -----------------------------
 app.use(function(req,res,next){
-  if(req.user) console.log(req.cookies);
-  res.cookie('connect-sid');
+  if(req.user) res.cookie('connect.sid', req.cookies['connect.sid'], { maxAge: 24*60*1000 });
   next();
 });
 
 app.use('/auth', auth_routes);
 app.use('/api', api_routes);
 
-app.use('/users', users);
 app.use('/search', router_search);
 app.use('/', routes);
 //-------------------- Routing END -------------------------------

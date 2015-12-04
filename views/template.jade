@@ -27,7 +27,8 @@ html
     script(src='http://dmaps.daum.net/map_js_init/postcode.v2.js')
     script(src='/javascripts/address_finder.js')
     script(src='/javascripts/loanCard.js')
-    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js')
 
   body(ng-app="campusBankApp")
     // jQuery (necessary for Bootstrap's JavaScript plugins)
@@ -114,7 +115,7 @@ html
               span 회원가입
             button.rightAssign.col-xs-1#login
               span 로그인
-            div.modal.fade#modal-login(ng-controller="loginController")
+            div.modal.fade#modal-login(ng-controller="authController")
               div.modal-dialog
                 div.modal-content
                   div.modal-header
@@ -141,7 +142,7 @@ html
                       div.row
                         div.col-xs-2
                         div.col-xs-8
-                          input(type='submit', value='로그인')#login-post
+                          input(type='submit', value='로그인', onclick="closeModal()")#login-post
                         div.col-xs-2
                   div.modal-footer
                     button(type='button', data-dismiss='modal').btn.btn-default Close
@@ -159,8 +160,8 @@ html
           block content
 
     script(src="javascripts/app/campusBankApp.js")
-    script(src="javascripts/app/loginController.js")
-    script(src="javascripts/services/login.js")
+    script(src="javascripts/app/authController.js")
+    script(src="javascripts/services/authenticate.js")
 
 <!-- /#page-content-wrapper -->
 

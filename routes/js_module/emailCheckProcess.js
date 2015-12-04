@@ -45,18 +45,19 @@ module.exports = function(req,res){
                 userAuth.save(function(err,userauth){
                     if(err) callback(err);
                     userAuth.dbSuccess();
-                    if(userAuth.usertype == 'loan') return res.redirect('/');
-                    else return res.redirect('/');
+
+                    return res.json({ success: true, message: null, data:{ usertype: userAuth.usertype }});
                 });
             }
         }
     ], function(err, errCode, result){
-        console.log(err);
-        if(errCode == 'errCode1'){return res.render('emailCheckLogin', {authError1: 'true'});}
-        if(errCode == 'errCode2'){return res.render('emailCheckLogin', {authError2: 'true'});}
-        if(errCode == 'errCode3'){return res.render('emailCheckLogin', {authError3: 'true'});}
-        if(errCode == 'errCode4'){return res.render('emailCheckLogin', {authError4: 'true'});}
-        if(errCode == 'errCode5'){return res.render('login', {authError5: 'true'});}
+        var errmsg = '';
+        if(errCode == 'errCode1') errmsg = 'Failed connecting to database';
+        else if(errCode =='errCode2') errmsg = 'Authentication period is expired';
+        else if(errCode =='errCode3') errmsg = 'Not appropriate access to authentication';
+        else if(errCode =='errCode4') errmsg = 'Failed connecting to database';
+        else if(errCode =='errCode5') errmsg = 'Already be authenticated';
 
+        return res.json({ success: false, message: errmsg});
     });
 };

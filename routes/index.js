@@ -5,6 +5,10 @@ var registerLoanCardProc = require('./js_module/registerLoanCardProc.js');
 
 module.exports = function(){
 
+  router.use('/loginSuccess', function(req,res,next){
+    res.json({ loggedIn: true, username: req.user.username, usertype: req.user.usertype});
+  });
+
   router.use('/invest/:page*', function(req, res, next) {
     res.redirect('/invest#!/invest/' + req.params.page);
   });
