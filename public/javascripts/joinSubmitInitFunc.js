@@ -6,8 +6,6 @@ var addPostLink = function(){
     $('.ajax-post').click(function(e){
         e.preventDefault();
 
-        //TODO
-        // ajax-post event in 'joinSubmit' handling here
     });
 };
 

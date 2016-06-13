@@ -4,6 +4,7 @@ var schemas = require('./schema/schema_loan.js');
 var foreignLangSchema = schemas.foreignLangSchema;
 var licenseSchema = schemas.licenseSchema;
 var loanSchema = schemas.loanSchema;
+var loanCardSchema = schemas.loanCardSchema;
 
 //Schema for 'User'
 var UserSchema = mongoose.Schema({
@@ -42,13 +43,11 @@ var UserSchema = mongoose.Schema({
       exist: Boolean, // loan history existence
                       // true, false
       amount: Number, // 1000, 1500, ...
-      loan: [loanSchema]
+      details: [loanSchema]
     }
   },
-  loan:{
-
-  },
-  lend:{
+  loans:[loanCardSchema],
+  lends:{
 
   }
 });

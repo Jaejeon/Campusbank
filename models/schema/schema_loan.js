@@ -20,3 +20,14 @@ exports.loanSchema = mongoose.Schema({
   category: String, // banks, investment fund, ...(first financial sector, second financial sector, ...)
   amount: Number // 500, 1000, 1500, ...
 });
+
+exports.loanCardSchema = mongoose.Schema({
+  purpose: String,
+  purpose_detail: String,
+  loan_type: String, // wating lenders, immediate loan, ...
+  total_amount: Number,
+  min_amount: Number,
+  grace_period: Number,
+  payback_period: Number,
+  createdAt: Date
+});

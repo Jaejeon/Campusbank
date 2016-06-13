@@ -60,8 +60,6 @@ router.post('/loan/credit-auth', function(req,res,next){
 
   console.log(loan_json);
 
-  //TODO
-  //loanInfo, eduInfo, income JSON obj
   dbquery.exec(function(err,docs){ });
 });
 
